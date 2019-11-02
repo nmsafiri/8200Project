@@ -1,4 +1,4 @@
 # 8200Project
-Semester project for parallel architecture class based on NetAdapt: Platform-Aware Neural Network Adaptation for Mobile Applications
+Semester project for CPSC 8200 Parallel Architecture class, the project is based on the paper NetAdapt: Platform-Aware Neural Network Adaptation for Mobile Applications
 
 Members: Nicodemus Msafiri and Thomas Randall
