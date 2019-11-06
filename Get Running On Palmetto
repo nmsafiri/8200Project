@@ -1,0 +1,18 @@
+Please note when running installations: the default memory requirement is too small, allocate something like 8gb and you should be fine.
+
+The NetAdapt Library wants Python3.7 and some deps, use an anaconda3 module to avoid installing them yourself.
+You will still need to install Torch/Torchvision if you don't have them (pip install --user torch torchvision), and load a cuda 10.0 toolkit
+
+
+Recommended modules:
+anaconda3/5.1.0
+cuda-toolkit/10.0.130
+
+The anaconda toolkit still isn't upgraded enough for NetAdapt, so run (pip install --upgrade scipy --user) to get that requirement filled.
+
+You should be able to run the NetAdapt unit tests now, try it with:
+sh scripts/unittest.sh
+All tests should return "OK", you shouldn't see any "FAIL"
+
+Try running the Netadapt Helloworld test too:
+sh scripts/netadapt_helloworld.sh
