@@ -54,11 +54,6 @@ def measure_energy(duration, runtimes=500):
                                         2: lambda z: float(z)})
       # Use datetime and timedelta objects to parse the nvidia_smi timestamps correctly
       time_prev = None
-      iteration_time = timedelta()
-      # Counts number of watts observed
-      iteration_watts = 0.0
-      # Counts number of observations made
-      ticks = 0
       for line in nvidia_smi_data:
         # LINE FORMAT: [DATETIME, GPU_ID, WATTS]
         # Select only data from GPU 0 (we may need to make this an argument, but more efficient to tell nvidia-smi via its -i argument)
@@ -67,14 +62,13 @@ def measure_energy(duration, runtimes=500):
         if time_prev is not None:
           temp_prev = dcpy(time_prev)
           time_prev = datetime.strptime(line[0][2:-1], "%Y/%m/%d %H:%M:%S.%f")
-          iteration_time += time_prev - temp_prev
+          iteration_time = time_prev - temp_prev
+          watts = line[2]
+          # Joules = Watts * Time(seconds)
+          # timedelta can be converted to float by dividing by the desired time resolution
+          joules += watts * (iteration_time / timedelta(seconds=1))
         else:
           time_prev = datetime.strptime(line[0][2:-1], "%Y/%m/%d %H:%M:%S.%f")
-        iteration_watts += line[2]
-        ticks += 1
-      # Joules = Watts * Time(seconds)
-      # timedelta can be converted to float by dividing by the desired time resolution
-      joules += (iteration_watts * (iteration_time / timedelta(microseconds=1)) / 1e6) / ticks
     return [joules/float(runtimes), runtime/float(runtimes)]
 
 if __name__ == "__main__":
