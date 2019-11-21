@@ -4,50 +4,47 @@ from copy import deepcopy as dcpy
 
 # Creates an nvidia-smi process that logs our energy metrics (can be killed at-will)
 class energyProfile(threading.Thread):
-  def __init__(self, *args, **kwargs):
+  def __init__(self, duration, *args, **kwargs):
     super(energyProfile, self).__init__(*args, **kwargs)
     self._stopThread = threading.Event()
-  def stopThread(self): # Function you call to stop the thread
-    self._stopThread.set()
+    self.duration = duration
   def run(self): # Thread's job to do when running
-    # Create log of output
-    proc = subprocess.Popen(shlex.split("nvidia-smi --query-gpu=timestamp,index,power.draw --format=csv,noheader,nounits -lms 1 -f 'nvidia.log'"))
-    while True:
-      if self._stopThread.isSet():
-        proc.kill()
-        return
-      time.sleep(1)
+    # Create log of output using nvidia_smi
+      # shlex.split() helps Popen() read the command line the way you'd expect it to
+    nvidia_smi = subprocess.Popen(shlex.split("nvidia-smi --query-gpu=timestamp,index,power.draw --format=csv,noheader,nounits -lms 1 -f 'nvidia.log'"))
+    # Here's where you would do whatever you want to monitor energy for
+    time.sleep(self.duration)
+    # Shut down nvidia_smi
+    nvidia_smi.kill()
 
-def splitJoinTime():
-  nvidiaEnergy = energyProfile()
-  nvidiaEnergy.start()
-  start = time.time()
-  time.sleep(3)
-  finish = time.time()
-  nvidiaEnergy.stopThread()
-  nvidiaEnergy.join()
-  return [start, finish]
-
-def measure_energy(runtimes=500):
+# Simple function to measure energy
+def measure_energy(duration, runtimes=500):
     '''
-        Measure energy of 'thing_to_do'
+        GOAL:
         Randomly sample 'runtimes' inputs with normal distribution and
-        measure the energy
+        measure the average energy expenditure
 
         Input:
-            `thing_to_do`: thing to be measured
-            `input_for_thing`: (list) input
+            duration (int) time to sleep (filler for real GPU thing to do)
+            runtimes (int) number of times to iterate
 
         Output:
             average joules (float)
+            average time (float) # Should be removed in the future, but convenient for now
     '''
     runtime = 0.0
     joules = 0.0
     for i in range(runtimes):
       print("Iteration {0:03d} -- begin".format(i))
-      start, finish = splitJoinTime()
+      start = time.time()
+      nvidiaEnergy = energyProfile(duration)
+      nvidiaEnergy.start()
+      nvidiaEnergy.join()
+      finish = time.time()
       print("Iteration {0:03d} -- end ({1} seconds)".format(i, finish-start))
       runtime += (finish - start)
+      # Numpy function reads the csv and returns numpy array of the data
+        # genfromtxt is tolerant to incomplete records, which often occur since we likely kill nvidia_smi mid-write
       nvidia_smi_data = np.genfromtxt("nvidia.log", delimiter=",", dtype=str,\
                                       autostrip=True, invalid_raise=False,\
                                       unpack=False,\
@@ -55,11 +52,16 @@ def measure_energy(runtimes=500):
                                         0: lambda x: str(x),\
                                         1: lambda y: int(y),\
                                         2: lambda z: float(z)})
+      # Use datetime and timedelta objects to parse the nvidia_smi timestamps correctly
       time_prev = None
       iteration_time = timedelta()
+      # Counts number of watts observed
       iteration_watts = 0.0
+      # Counts number of observations made
       ticks = 0
       for line in nvidia_smi_data:
+        # LINE FORMAT: [DATETIME, GPU_ID, WATTS]
+        # Select only data from GPU 0 (we may need to make this an argument, but more efficient to tell nvidia-smi via its -i argument)
         if line[1] != 0:
           continue
         if time_prev is not None:
@@ -70,10 +72,12 @@ def measure_energy(runtimes=500):
           time_prev = datetime.strptime(line[0][2:-1], "%Y/%m/%d %H:%M:%S.%f")
         iteration_watts += line[2]
         ticks += 1
+      # Joules = Watts * Time(seconds)
+      # timedelta can be converted to float by dividing by the desired time resolution
       joules += (iteration_watts * (iteration_time / timedelta(microseconds=1)) / 1e6) / ticks
     return [joules/float(runtimes), runtime/float(runtimes)]
 
 if __name__ == "__main__":
-  result = measure_energy(5)
+  result = measure_energy(3,5)
   print("Average joules = {0}, Average time = {1}".format(result[0], result[1]))
 
