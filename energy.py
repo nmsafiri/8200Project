@@ -1,4 +1,4 @@
-import time, threading, subprocess, shlex, numpy as np
+import time, threading, subprocess, shlex, warnings, numpy as np
 from datetime import datetime, timedelta
 from copy import deepcopy as dcpy
 
@@ -43,15 +43,23 @@ def measure_energy(duration, runtimes=500):
       finish = time.time()
       print("Iteration {0:03d} -- end ({1} seconds)".format(i, finish-start))
       runtime += (finish - start)
-      # Numpy function reads the csv and returns numpy array of the data
+      # Ignore the numpy incomplete records warning (we're aware it will happen)
         # genfromtxt is tolerant to incomplete records, which often occur since we likely kill nvidia_smi mid-write
-      nvidia_smi_data = np.genfromtxt("nvidia.log", delimiter=",", dtype=str,\
-                                      autostrip=True, invalid_raise=False,\
-                                      unpack=False,\
-                                      converters={\
-                                        0: lambda x: str(x),\
-                                        1: lambda y: int(y),\
-                                        2: lambda z: float(z)})
+      with warnings.catch_warnings():
+        warnings.filterwarnings('ignore', r'Some errors were detected !')
+        # Numpy function reads the csv and returns numpy array of the data
+        ''' UNKNOWN ERROR (needs debugging/replication aid):
+              line 2219, in genfromtxt
+              output = np.array(data, dtype)
+              ValueError: could not convert string to float: '???'
+        '''
+        nvidia_smi_data = np.genfromtxt("nvidia.log", delimiter=",", dtype=str,\
+                                        autostrip=True, invalid_raise=False,\
+                                        unpack=False,\
+                                        converters={\
+                                          0: lambda x: datetime.strptime(str(x)[2:-1], "%Y/%m/%d %H:%M:%S.%f"),\
+                                          1: lambda y: int(y),\
+                                          2: lambda z: float(z)})
       # Use datetime and timedelta objects to parse the nvidia_smi timestamps correctly
       time_prev = None
       for line in nvidia_smi_data:
@@ -61,14 +69,14 @@ def measure_energy(duration, runtimes=500):
           continue
         if time_prev is not None:
           temp_prev = dcpy(time_prev)
-          time_prev = datetime.strptime(line[0][2:-1], "%Y/%m/%d %H:%M:%S.%f")
+          time_prev = line[0]
           iteration_time = time_prev - temp_prev
           watts = line[2]
           # Joules = Watts * Time(seconds)
           # timedelta can be converted to float by dividing by the desired time resolution
           joules += watts * (iteration_time / timedelta(seconds=1))
         else:
-          time_prev = datetime.strptime(line[0][2:-1], "%Y/%m/%d %H:%M:%S.%f")
+          time_prev = line[0]
     return [joules/float(runtimes), runtime/float(runtimes)]
 
 if __name__ == "__main__":
