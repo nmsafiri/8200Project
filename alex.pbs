@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -N NA_alexnet
+#PBS -l select=1:ncpus=16:ngpus=2:gpu_model=v100:mem=8gb,walltime=12:00:00
+#PBS -j oe
+#PBS -m ae
+#PBS -M tlranda@g.clemson.edu
+
+cd /home/tlranda/cpsc8200/8200Project/netadapt-master;
+module add anaconda3/5.1.0 cuda-toolkit/10.0.130;
+rm -rf models/alexnet/prune-by-latency/master;
+sh scripts/netadapt_alexnet-0.5latency.sh;
+
