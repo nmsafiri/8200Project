@@ -19,7 +19,7 @@ import functions as fns
 
 '''
     This is an example of NetAdapt applied to MobileNet.
-    We measure the latency on GPU.
+    We measure the latency and energy on GPU.
 '''
 
 '''
@@ -32,14 +32,14 @@ _MIN_CONV_FEATURE_SIZE = 8
 _MIN_FC_FEATURE_SIZE   = 64
 
 '''
-    How many times to run the forward function of a layer in order to get its latency.
+    How many times to run the forward function of a layer in order to get its empirical measurements.
 '''
-_MEASURE_LATENCY_SAMPLE_TIMES = 500
+_MEASURE_SAMPLE_TIMES = 500
 
 '''
-    The batch size of input data when running forward functions to measure latency.
+    The batch size of input data when running forward functions to gather empirical measurements.
 '''
-_MEASURE_LATENCY_BATCH_SIZE = 128
+_MEASURE_BATCH_SIZE = 128
 
 class networkUtils_mobilenet(NetworkUtilsAbstract):
     num_simplifiable_blocks = None
@@ -159,9 +159,9 @@ class networkUtils_mobilenet(NetworkUtilsAbstract):
             Input:
                 `network_def`: simplifiable network definition (conv & fc). Get network def from self.get_network_def_from_model(...)
                 `block`: (int) index of block to simplify
-                `constraint`: (float) representing the FLOPs/weights/latency constraint the simplied model should satisfy
-                `resource_type`: `FLOPs`, `WEIGHTS`, or `LATENCY`
-                `lookup_table_path`: (string) path to latency lookup table. Needed only when resource_type == 'LATENCY'
+                `constraint`: (float) representing the FLOPs/weights/latency/energy constraint the simplied model should satisfy
+                `resource_type`: `FLOPs`, `WEIGHTS`, `LATENCY`, or `ENERGY`
+                `lookup_table_path`: (string) path to lookup table. Needed only when resource_type == 'LATENCY' or 'ENERGY'
                 
             Output:
                 `simplified_network_def`: simplified network definition. Indicates how much the network should
@@ -212,23 +212,40 @@ class networkUtils_mobilenet(NetworkUtilsAbstract):
         '''
         return fns.compute_latency_from_lookup_table(network_def, lookup_table_path)
 
-    
-    def build_lookup_table(self, network_def_full, resource_type, lookup_table_path, 
-                           min_conv_feature_size=_MIN_CONV_FEATURE_SIZE, 
-                           min_fc_feature_size=_MIN_FC_FEATURE_SIZE, 
-                           measure_latency_batch_size=_MEASURE_LATENCY_BATCH_SIZE, 
-                           measure_latency_sample_times=_MEASURE_LATENCY_SAMPLE_TIMES, 
+    def _compute_energy_from_lookup_table(self, network_def, lookup_table_path):
+        '''
+            please refer to def compute_energy_from_lookup_table(...) in functions.py
+        '''
+        return fns.compute_energy_from_lookup_table(network_def, lookup_table_path)
+
+    def build_lookup_table(self, network_def_full, resource_type, lookup_table_path,
+                           min_conv_feature_size=_MIN_CONV_FEATURE_SIZE,
+                           min_fc_feature_size=_MIN_FC_FEATURE_SIZE,
+                           measure_experiment_batch_size=_MEASURE_BATCH_SIZE,
+                           measure_experiment_sample_times=_MEASURE_SAMPLE_TIMES,
                            verbose=True):
-        # Build lookup table for latency
-        '''
-            please refer to def build_latency_lookup_table(...) in functions.py
-        '''
-        return fns.build_latency_lookup_table(network_def_full, lookup_table_path,
-                                      min_conv_feature_size=min_conv_feature_size, 
-                                      min_fc_feature_size=min_fc_feature_size,
-                                      measure_latency_batch_size=measure_latency_batch_size,
-                                      measure_latency_sample_times=measure_latency_sample_times,
-                                      verbose=verbose)
+        if resource_type == 'LATENCY':
+            # Build lookup table for latency
+            '''
+                please refer to def build_latency_lookup_table(...) in functions.py
+            '''
+            return fns.build_latency_lookup_table(network_def_full, lookup_table_path,
+                                          min_conv_feature_size=min_conv_feature_size,
+                                          min_fc_feature_size=min_fc_feature_size,
+                                          measure_experiment_batch_size=measure_experiment_batch_size,
+                                          measure_experiment_sample_times=measure_experiment_sample_times,
+                                          verbose=verbose)
+        elif resource_type == 'ENERGY':
+            # Build lookup table for energy
+            '''
+                please refer to def build_energy_lookup_table(...) in functions.py
+            '''
+            return fns.build_energy_lookup_table(network_def_full, lookup_table_path,
+                                          min_conv_feature_size=min_conv_feature_size,
+                                          min_fc_feature_size=min_fc_feature_size,
+                                          measure_experiment_batch_size=measure_experiment_batch_size,
+                                          measure_experiment_sample_times=measure_experiment_sample_times,
+                                          verbose=verbose)
         
         
     def compute_resource(self, network_def, resource_type, lookup_table_path=None):

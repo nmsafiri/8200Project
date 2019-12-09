@@ -436,7 +436,7 @@ if __name__ == '__main__':
                             help='If `--budget` is not specified, `buget` = `budget_ratio`*(pretrained model resource) (default: 0.25).')
     
     arg_parser.add_argument('-rt', '--resource_type', type=str, default='FLOPS', 
-                            help='Resource constraint type (default: FLOPS). We currently support `FLOPS`, `WEIGHTS`, and `LATENCY` (device cuda:0). If you want to add other resource types, please modify network_util.')
+                            help='Resource constraint type (default: FLOPS). We currently support `FLOPS`, `WEIGHTS`, `LATENCY`, and `ENERGY` (device cuda:0). If you want to add other resource types, please modify network_util.')
     
     arg_parser.add_argument('-ir', '--init_resource_reduction', type=float, default=None, 
                             help='For each iteration, target resource = current resource - `init_resource_reduction`*(`resource_reduction_decay`**(iteration-1)).')

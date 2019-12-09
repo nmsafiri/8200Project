@@ -10,6 +10,9 @@ from scipy.interpolate import Rbf
 from collections import OrderedDict
 from constants import *
 
+import subprocess, shlex
+from datetime import datetime, timedelta
+
 def update_progress(index, length, **kwargs):
     '''
         display progress
@@ -266,14 +269,14 @@ def compute_weights_and_macs(network_def):
 def measure_latency(model, input_data_shape, runtimes=500):
     '''
         Measure latency of 'model'
-        
+
         Randomly sample 'runtimes' inputs with normal distribution and
         measure the latencies
-    
+
         Input: 
             `model`: model to be measured (e.g. torch.nn.Conv2d)
             `input_shape`: (list) input shape of the model (e.g. (B, C, H, W))
-           
+
         Output: 
             average time (float)
     '''
@@ -300,16 +303,85 @@ def measure_latency(model, input_data_shape, runtimes=500):
     return total_time/float(runtimes)
 
 
+def measure_energy(model, input_data_shape, runtimes=500):
+    '''
+        Measure energy of 'model'
+
+        Randomly sample 'runtimes' inputs with normal distribution and
+        measure the energy
+
+        Input:
+            `model`: model to be measured (e.g. torch.nn.Conv2d)
+            `input_shape`: (list) input shape of the model (e.g. (B, C, H, W))
+
+        Output:
+            average energy (float)
+    '''
+    is_cuda = next(model.parameters()).is_cuda
+    if is_cuda:
+        cuda_num = next(model.parameters()).get_device()
+        # Set up nvidia-smi and give it a second to start (process generation is not instantaneous)
+        # It records a timestamp and the powerdraw on the specific device used (currently set to 1ms intervals)
+          # Ideally, logs should be written to the same folder as the lookup table, and for record-keeping should somehow have unique filenames
+          # BUT we don't require that at this point, so it isn't happening yet
+        nvidia_smi = subprocess.Popen(shlex.split("nvidia-smi --query-gpu=timestamp,power.draw --format=csv,noheader,nounits -i {} -lms 1 -f 'nvidia.log'".format(cuda_num)))
+        time.sleep(1)
+    # Data for tracking times where we actually do inference (valid energy measurement spans)
+    start_stop = []
+    # Now that it's running, get your samples and timestamps
+    for i in range(runtimes):
+        if is_cuda:
+            input = torch.cuda.FloatTensor(*input_data_shape).normal_(0, 1)
+            input = input.cuda(cuda_num)
+            with torch.no_grad():
+                time_start = datetime.now()
+                model(input)
+                torch.cuda.synchronize()
+                time_finish = datetime.now()
+                start_stop.append([time_start, time_finish])
+        else:
+            # Raised here as later this shouldn't be an exception
+            raise ValueError("Energy measurements only supported for cuda devices at this time")
+    # Turn off nvidia smi profiling and give it a second to completely shut down/preserve the file
+    nvidia_smi.kill()
+    time.sleep(1)
+    # Process the relevant energy data from the file
+    with open("nvidia.log", 'r') as nvlog:
+        # Line data are delimited by commas, apply lstrip/rstrip to fix newlines etc
+        # Automatically trim first and last timestamps (last in particular is almost certainly incomplete)
+        nvdata = [[datetime.strptime(line.lstrip().rstrip().split(',')[0], "%Y/%m/%d %H:%M:%s.%f"),
+                   float(line.lstrip().rstrip().split(',')[1])] for line in nvlog.readlines()[1:-1]]
+    # Find and report average energy
+    total_energy = .0
+    iteration = 0
+    side = 0
+    for line in range(len(nvdata)):
+        # Locate start of the measured interval
+        if side == 0 and nvdata[line][0] > start_stop[iteration][0]:
+            side = 1
+        # Record portion of measured interval
+        elif side == 1 and nvdata[line][0] <= start_stop[iteration][1]:
+            # Convert timestamps to floating point seconds
+            elapsed_time = (nvdata[line][0] - nvdata[line-1][0]) / timedelta(seconds=1)
+            # Energy (Joules) = Power Draw (Watts) * Elapsed_time (seconds)
+            total_energy += (nvdata[line-1][1] * elapsed_time)
+        # Portion completed, seek next iteration
+        elif side == 1 and nvdata[line][0] > start_stop[iteration][1]:
+            side = 0
+            iteration += 1
+    return total_energy/float(runtimes)
+
+
 def compute_latency_from_lookup_table(network_def, lookup_table_path):
     '''
         Compute the latency of all layers defined in `network_def` (only including Conv and FC).
-        
+
         When the value of latency is not in the lookup table, that value would be interpolated.
-        
+
         Input:
             `network_def`: defined in get_network_def_from_model()
             `lookup_table_path`: (string) path to lookup table
-        
+
         Output: 
             `latency`: (float) latency
     '''
@@ -341,13 +413,54 @@ def compute_latency_from_lookup_table(network_def, lookup_table_path):
     return latency
 
 
+def compute_energy_from_lookup_table(network_def, lookup_table_path):
+    '''
+        Compute the energy of all layers defined in `network_def` (only including Conv and FC).
+
+        When the value of energy is not in the lookup table, that value would be interpolated.
+
+        Input:
+            `network_def`: defined in get_network_def_from_model()
+            `lookup_table_path`: (string) path to lookup table
+
+        Output: 
+            `energy`: (float) energy
+    '''
+    energy = .0
+    with open(lookup_table_path, 'rb') as file_id:
+        lookup_table = pickle.load(file_id)
+    for layer_name, layer_properties in network_def.items():
+        if layer_name not in lookup_table.keys():
+            raise ValueError('Layer name {} in network def not found in lookup table'.format(layer_name))
+            break
+        num_in_channels  = layer_properties[KEY_NUM_IN_CHANNELS]
+        num_out_channels = layer_properties[KEY_NUM_OUT_CHANNELS]
+        if (num_in_channels, num_out_channels) in lookup_table[layer_name][KEY_ENERGY].keys():
+            energy += lookup_table[layer_name][KEY_ENERGY][(num_in_channels, num_out_channels)]
+        else:
+            # Not found in the lookup table, then interpolate the energy
+            feature_samples = np.array(list(lookup_table[layer_name][KEY_ENERGY].keys()))
+            feature_samples_in  = feature_samples[:, 0]
+            feature_samples_out = feature_samples[:, 1]
+            measurement = np.array(list(lookup_table[layer_name][KEY_ENERGY].values()))
+            assert feature_samples_in.shape == feature_samples_out.shape
+            assert feature_samples_in.shape == measurement.shape
+            rbf = Rbf(feature_samples_in, feature_samples_out, \
+                      measurement, function='cubic')
+            num_in_channels = np.array([num_in_channels])
+            num_out_channels = np.array([num_out_channels])
+            estimated_energy = rbf(num_in_channels, num_out_channels)
+            energy += estimated_energy[0]
+    return energy
+
+
 def compute_resource(network_def, resource_type, lookup_table_path=None):
     '''
         compute resource based on resource type
         
         Input:
             `network_def`: defined in get_network_def_from_model()
-            `resource_type`: (string) (FLOPS/WEIGHTS/LATENCY)
+            `resource_type`: (string) (FLOPS/WEIGHTS/LATENCY/ENERGY)
             `lookup_table_path`: (string) path to lookup table
         
         Output:
@@ -360,16 +473,19 @@ def compute_resource(network_def, resource_type, lookup_table_path=None):
         _, resource, _, _ = compute_weights_and_macs(network_def)
     elif resource_type == 'LATENCY':
         resource = compute_latency_from_lookup_table(network_def, lookup_table_path)
+    elif resource_type == 'ENERGY':
+        resource = compute_energy_from_lookup_table(network_def, lookup_table_path)
     else:
-        raise ValueError('Only support the resource type `FLOPS`, `WEIGHTS`, and `LATENCY`.')
+        raise ValueError('Only support the resource type `FLOPS`, `WEIGHTS`, `LATENCY`, and `ENERGY`.')
     return resource
 
 
-def build_latency_lookup_table(network_def_full, lookup_table_path, min_conv_feature_size=8, 
-                       min_fc_feature_size=128, measure_latency_batch_size=4, 
-                       measure_latency_sample_times=500, verbose=False):
+def build_lookup_table(network_def_full, lookup_table_path, resource_type,
+                       min_conv_feature_size=8, min_fc_feature_size=128,
+                       measure_experiment_batch_size=4, measure_experiment_sample_times=500,
+                       verbose=False):
     '''
-        Build lookup table for latencies of layers defined by `network_def_full`.
+        Build lookup table for latencies or energy of layers defined by `network_def_full`.
         
         Supported layers: Conv2d, Linear, ConvTranspose2d
             
@@ -378,20 +494,20 @@ def build_latency_lookup_table(network_def_full, lookup_table_path, min_conv_fea
         input: 
             `network_def_full`: defined in get_network_def_from_model()
             `lookup_table_path`: (string) path to save the file of lookup table
+            `resource_type`: (string) `LATENCY` or `ENERGY` (experimentally measured types)
             `min_conv_feature_size`: (int) The size of feature maps of simplified layers (conv layer)
                 along channel dimmension are multiples of 'min_conv_feature_size'.
                 The reason is that on mobile devices, the computation of (B, 7, H, W) tensors 
                 would take longer time than that of (B, 8, H, W) tensors.
             `min_fc_feature_size`: (int) The size of features of simplified FC layers are 
                 multiples of 'min_fc_feature_size'.
-            `measure_latency_batch_size`: (int) the batch size of input data
-                when running forward functions to measure latency.
-            `measure_latency_sample_times`: (int) the number of times to run the forward function of 
-                a layer in order to get its latency.
+            `measure_experiment_batch_size`: (int) the batch size of input data
+                when running forward functions to gather empirical measurements.
+            `measure_experiment_sample_times`: (int) the number of times to run the forward function of 
+                a layer in order to get its empirical measurement.
             `verbose`: (bool) set True to display detailed information.
     '''
     
-    resource_type = 'LATENCY'
     # Generate the lookup table.
     lookup_table = OrderedDict()
     for layer_name, layer_properties in network_def_full.items():
@@ -440,8 +556,12 @@ def build_latency_lookup_table(network_def_full, lookup_table_path, min_conv_fea
         lookup_table[layer_name][KEY_GROUPS]            = groups
         lookup_table[layer_name][KEY_LAYER_TYPE_STR]    = layer_type_str
         lookup_table[layer_name][KEY_INPUT_FEATURE_MAP_SIZE] = input_data_shape
-        lookup_table[layer_name][KEY_LATENCY]           = {}
-        
+        if resource_type == 'LATENCY':
+            lookup_table[layer_name][KEY_LATENCY]       = {}
+        elif resource_type == 'ENERGY':
+            lookup_table[layer_name][KEY_ENERGY]        = {}
+        else:
+            raise ValueError('Only support building the lookup table for `LATENCY` and `ENERGY`.')
         print('Is depthwise:', is_depthwise)
         print('Num in channels:', num_in_channels)
         print('Num out channels:', num_out_channels)
@@ -476,45 +596,46 @@ def build_latency_lookup_table(network_def_full, lookup_table_path, min_conv_fea
                 reduced_num_out_channels_list = list(range(num_out_channels, 0, -min_feature_size))
                 
             for reduced_num_out_channels in reduced_num_out_channels_list:                
-                if resource_type == 'LATENCY':
-                    if layer_type_str == 'Conv2d':
-                        if is_depthwise:
-                            layer_test = torch.nn.Conv2d(reduced_num_in_channels, reduced_num_out_channels, \
-                            kernel_size, stride, padding, groups=reduced_num_in_channels)
-                        else:
-                            layer_test = torch.nn.Conv2d(reduced_num_in_channels, reduced_num_out_channels, \
-                            kernel_size, stride, padding, groups=groups)
-                        input_data_shape = layer_properties[KEY_INPUT_FEATURE_MAP_SIZE]
-                        input_data_shape = (measure_latency_batch_size, 
-                            reduced_num_in_channels, *input_data_shape[2::])
-                    elif layer_type_str == 'Linear':
-                        layer_test = torch.nn.Linear(reduced_num_in_channels, reduced_num_out_channels)
-                        input_data_shape = (measure_latency_batch_size, reduced_num_in_channels)
-                    elif layer_type_str == 'ConvTranspose2d':
-                        if is_depthwise:
-                            layer_test = torch.nn.ConvTranspose2d(reduced_num_in_channels, reduced_num_out_channels, 
-                                kernel_size, stride, padding, groups=reduced_num_in_channels)
-                        else:
-                            layer_test = torch.nn.ConvTranspose2d(reduced_num_in_channels, reduced_num_out_channels, 
-                                kernel_size, stride, padding, groups=groups)
-                        input_data_shape = layer_properties[KEY_INPUT_FEATURE_MAP_SIZE]
-                        input_data_shape = (measure_latency_batch_size, 
-                            reduced_num_in_channels, *input_data_shape[2::])
+                if layer_type_str == 'Conv2d':
+                    if is_depthwise:
+                        layer_test = torch.nn.Conv2d(reduced_num_in_channels, reduced_num_out_channels, \
+                        kernel_size, stride, padding, groups=reduced_num_in_channels)
                     else:
-                        raise ValueError('Not support this type of layer.')
-                    if torch.cuda.is_available():
-                        layer_test = layer_test.cuda()
-                    measurement = measure_latency(layer_test, input_data_shape, measure_latency_sample_times)
+                        layer_test = torch.nn.Conv2d(reduced_num_in_channels, reduced_num_out_channels, \
+                        kernel_size, stride, padding, groups=groups)
+                    input_data_shape = layer_properties[KEY_INPUT_FEATURE_MAP_SIZE]
+                    input_data_shape = (measure_experiment_batch_size, 
+                        reduced_num_in_channels, *input_data_shape[2::])
+                elif layer_type_str == 'Linear':
+                    layer_test = torch.nn.Linear(reduced_num_in_channels, reduced_num_out_channels)
+                    input_data_shape = (measure_experiment_batch_size, reduced_num_in_channels)
+                elif layer_type_str == 'ConvTranspose2d':
+                    if is_depthwise:
+                        layer_test = torch.nn.ConvTranspose2d(reduced_num_in_channels, reduced_num_out_channels, 
+                            kernel_size, stride, padding, groups=reduced_num_in_channels)
+                    else:
+                        layer_test = torch.nn.ConvTranspose2d(reduced_num_in_channels, reduced_num_out_channels, 
+                            kernel_size, stride, padding, groups=groups)
+                    input_data_shape = layer_properties[KEY_INPUT_FEATURE_MAP_SIZE]
+                    input_data_shape = (measure_experiment_batch_size, 
+                        reduced_num_in_channels, *input_data_shape[2::])
                 else:
-                    raise ValueError('Only support building the lookup table for `LATENCY`.')
-
-
-                # Add the measurement into the lookup table.
-                lookup_table[layer_name][KEY_LATENCY][(reduced_num_in_channels, reduced_num_out_channels)] = measurement
-                
-                if verbose:
-                    update_progress(index, len(reduced_num_out_channels_list), latency=str(measurement))
-                    index = index + 1
+                    raise ValueError('Not support this type of layer.')
+                if torch.cuda.is_available():
+                    layer_test = layer_test.cuda()
+                # Use layer and input for empricial measurement and add the measurement into the lookup table.
+                if resource_type == 'LATENCY':
+                    measurement = measure_latency(layer_test, input_data_shape, measure_experiment_sample_times)
+                    lookup_table[layer_name][KEY_LATENCY][(reduced_num_in_channels, reduced_num_out_channels)] = measurement
+                    if verbose:
+                        update_progress(index, len(reduced_num_out_channels_list), latency=str(measurement))
+                        index = index + 1
+                elif resource_type == 'ENERGY':
+                    measurement = measure_energy(layer_test, input_data_shape, measure_experiment_sample_times)
+                    lookup_table[layer_name][KEY_ENERGY][(reduced_num_in_channels, reduced_num_out_channels)] = measurement
+                    if verbose:
+                        update_progress(index, len(reduced_num_out_channels_list), energy=str(measurement))
+                        index = index + 1
                     
             if verbose:
                 print(' ')
