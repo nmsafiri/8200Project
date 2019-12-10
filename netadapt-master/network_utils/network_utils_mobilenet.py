@@ -224,29 +224,19 @@ class networkUtils_mobilenet(NetworkUtilsAbstract):
                            measure_experiment_batch_size=_MEASURE_BATCH_SIZE,
                            measure_experiment_sample_times=_MEASURE_SAMPLE_TIMES,
                            verbose=True):
-        if resource_type == 'LATENCY':
+        if resource_type == 'LATENCY' or resource_type == 'ENERGY':
             # Build lookup table for latency
             '''
-                please refer to def build_latency_lookup_table(...) in functions.py
+                please refer to def build_lookup_table(...) in functions.py
             '''
-            return fns.build_latency_lookup_table(network_def_full, lookup_table_path,
+            return fns.build_lookup_table(network_def_full, lookup_table_path, resource_type,
                                           min_conv_feature_size=min_conv_feature_size,
                                           min_fc_feature_size=min_fc_feature_size,
                                           measure_experiment_batch_size=measure_experiment_batch_size,
                                           measure_experiment_sample_times=measure_experiment_sample_times,
                                           verbose=verbose)
-        elif resource_type == 'ENERGY':
-            # Build lookup table for energy
-            '''
-                please refer to def build_energy_lookup_table(...) in functions.py
-            '''
-            return fns.build_energy_lookup_table(network_def_full, lookup_table_path,
-                                          min_conv_feature_size=min_conv_feature_size,
-                                          min_fc_feature_size=min_fc_feature_size,
-                                          measure_experiment_batch_size=measure_experiment_batch_size,
-                                          measure_experiment_sample_times=measure_experiment_sample_times,
-                                          verbose=verbose)
-        
+        else:
+            raise ValueError("Only LATENCY and ENERGY metrics support lookup tables at this time")
         
     def compute_resource(self, network_def, resource_type, lookup_table_path=None):
         '''

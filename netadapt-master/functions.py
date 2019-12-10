@@ -317,15 +317,22 @@ def measure_energy(model, input_data_shape, runtimes=500):
         Output:
             average energy (float)
     '''
+    # Calculate the expected latency to scale wait time on nvidia-smi
+      # Add 0.3 to the time for process writing to file because it's bad about that
+    expected_latency = runtimes*measure_latency(model, input_data_shape, runtimes=10)+0.3
+    if expected_latency < 1.0:
+        expected_latency = 1.3
+    #print("Expected_latency = {}".format(expected_latency))
     is_cuda = next(model.parameters()).is_cuda
     if is_cuda:
         cuda_num = next(model.parameters()).get_device()
-        # Set up nvidia-smi and give it a second to start (process generation is not instantaneous)
-        # It records a timestamp and the powerdraw on the specific device used (currently set to 1ms intervals)
+        # Set up nvidia-smi to record power draw on device used in 1ms intervals
           # Ideally, logs should be written to the same folder as the lookup table, and for record-keeping should somehow have unique filenames
           # BUT we don't require that at this point, so it isn't happening yet
         nvidia_smi = subprocess.Popen(shlex.split("nvidia-smi --query-gpu=timestamp,power.draw --format=csv,noheader,nounits -i {} -lms 1 -f 'nvidia.log'".format(cuda_num)))
-        time.sleep(1)
+        # Process generation is NOT instantaneous or well-ordered. In testing, takes ~0.3 sleep to actually get the process started.
+          # Using 0.5 in case of abnormally slow start for some reason or another
+        time.sleep(0.5)
     # Data for tracking times where we actually do inference (valid energy measurement spans)
     start_stop = []
     # Now that it's running, get your samples and timestamps
@@ -342,33 +349,76 @@ def measure_energy(model, input_data_shape, runtimes=500):
         else:
             # Raised here as later this shouldn't be an exception
             raise ValueError("Energy measurements only supported for cuda devices at this time")
-    # Turn off nvidia smi profiling and give it a second to completely shut down/preserve the file
+    # After waiting an appropriate amount of time for nvidia-smi to catch up, turn it off
+    time.sleep(expected_latency)
     nvidia_smi.kill()
-    time.sleep(1)
     # Process the relevant energy data from the file
     with open("nvidia.log", 'r') as nvlog:
         # Line data are delimited by commas, apply lstrip/rstrip to fix newlines etc
         # Automatically trim first and last timestamps (last in particular is almost certainly incomplete)
-        nvdata = [[datetime.strptime(line.lstrip().rstrip().split(',')[0], "%Y/%m/%d %H:%M:%s.%f"),
+        nvdata = [[datetime.strptime(line.lstrip().rstrip().split(',')[0], "%Y/%m/%d %H:%M:%S.%f"),
                    float(line.lstrip().rstrip().split(',')[1])] for line in nvlog.readlines()[1:-1]]
     # Find and report average energy
     total_energy = .0
     iteration = 0
     side = 0
+    #first_hit = None
+    #last_hit = None
+    start_data = None
     for line in range(len(nvdata)):
         # Locate start of the measured interval
         if side == 0 and nvdata[line][0] > start_stop[iteration][0]:
             side = 1
-        # Record portion of measured interval
-        elif side == 1 and nvdata[line][0] <= start_stop[iteration][1]:
-            # Convert timestamps to floating point seconds
-            elapsed_time = (nvdata[line][0] - nvdata[line-1][0]) / timedelta(seconds=1)
-            # Energy (Joules) = Power Draw (Watts) * Elapsed_time (seconds)
-            total_energy += (nvdata[line-1][1] * elapsed_time)
+            start_data = nvdata[line]
+            #if iteration == 0:
+            #    first_hit = line
+            #iteration = len(start_stop)-1
         # Portion completed, seek next iteration
         elif side == 1 and nvdata[line][0] > start_stop[iteration][1]:
+            # Convert timestamps to floating point seconds
+            elapsed_time = (nvdata[line][0] - start_data[0]) / timedelta(seconds=1)
+            # Energy (Joules) = Power Draw (Watts) * Elapsed_time (seconds)
+            total_energy += (start_data[1] * elapsed_time)
+            # Make sure at least one element counts for energy measurement
             side = 0
             iteration += 1
+            # Break early once finished
+            if iteration >= len(start_stop):
+                #last_hit = line
+                break
+    '''
+    print("LOGGING GOES FROM {0} TO {1}".format(nvdata[0][0], nvdata[-1][0]))
+    print("MEASURING GOES FROM {0} TO {1}".format(start_stop[0][0], start_stop[-1][1]))
+    if nvdata[0][0] > start_stop[0][0]:
+        print("!!!STARTED TOO LATE!!!")
+    else:
+        print("{0} is less than {1}".format(nvdata[0][0], start_stop[0][0]))
+    if nvdata[-1][0] < start_stop[-1][1]:
+        print("!!!DID NOT LOG LONG ENOUGH!!!")
+    else:
+        print("{0} is greater than {1}".format(nvdata[-1][0], start_stop[-1][1]))
+    point = 0
+    log_len = 10
+    print("Beginning energy measurements ({1}->{2}) = {0}".format(
+          [x[1] for x in nvdata[point:point+log_len]],
+          point, point+log_len))
+    print("First hit data region energy measurements ({1}->{2}) = {0}".format(
+          [x[1] for x in nvdata[first_hit:first_hit+log_len]],
+          first_hit, first_hit+log_len))
+    print("Middle of data region energy measurements ({1}->{2}) = {0}".format(
+          [x[1] for x in nvdata[(last_hit+first_hit)//2:(last_hit+first_hit)//2+log_len]],
+          (last_hit+first_hit)//2, (last_hit+first_hit)//2+log_len))
+    print("Last hit data region energy measurements ({1}->{2}) = {0}".format(
+          [x[1] for x in nvdata[last_hit:last_hit+log_len]],
+          last_hit, last_hit+log_len))
+    point = len(nvdata) - log_len
+    print("Final energy measurements ({1}->{2}) = {0}".format(
+          [x[1] for x in nvdata[point:point+log_len]],
+          point, point+log_len))
+    print("TOTAL ENERGY RECORDED = {0}".format(total_energy))
+    print("AVG ENERGY RECORDED = {0}".format(total_energy/float(runtimes)))
+    exit()
+    '''
     return total_energy/float(runtimes)
 
 
@@ -507,7 +557,7 @@ def build_lookup_table(network_def_full, lookup_table_path, resource_type,
                 a layer in order to get its empirical measurement.
             `verbose`: (bool) set True to display detailed information.
     '''
-    
+    print("functions.py: build_lookup_table() begins")
     # Generate the lookup table.
     lookup_table = OrderedDict()
     for layer_name, layer_properties in network_def_full.items():

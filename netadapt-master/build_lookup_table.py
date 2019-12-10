@@ -24,18 +24,20 @@ MIN_CONV_FEATURE_SIZE = 8
 MIN_FC_FEATRE_SIZE    = 64
 
 '''
-    `MEASURE_LATENCY_BATCH_SIZE`: the batch size of input data
-        when running forward functions to measure latency.
-    `MEASURE_LATENCY_SAMPLE_TIMES`: the number of times to run the forward function of 
-        a layer in order to get its latency.
+    `MEASURE_EXPERIMENT_BATCH_SIZE`: the batch size of input data
+        when running forward functions to measure empirical values.
+    `MEASURE_EXPERIMENT_SAMPLE_TIMES`: the number of times to run the forward function of 
+        a layer in order to get its empirical measurement.
 '''
-MEASURE_LATENCY_BATCH_SIZE = 128
-MEASURE_LATENCY_SAMPLE_TIMES = 500
+MEASURE_EXPERIMENT_BATCH_SIZE = 128
+MEASURE_EXPERIMENT_SAMPLE_TIMES = 500
 
 
-arg_parser = ArgumentParser(description='Build latency lookup table')
-arg_parser.add_argument('--dir', metavar='DIR', default='latency_lut/lut_alexnet.pkl',
-                    help='path to saving lookup table')
+arg_parser = ArgumentParser(description='Build lookup tables')
+arg_parser.add_argument('--resource', metavar='RESOURCE', default='ENERGY',
+                    help='which resource to build lookup table for (supports `LATENCY` and `ENERGY`)')
+arg_parser.add_argument('--dir', metavar='DIR', default='energy_lut/lut_alexnet.pkl',
+                    help='path to saving energy lookup table')
 arg_parser.add_argument('-a', '--arch', metavar='ARCH', default='alexnet',
                     choices=model_names,
                     help='model architecture: ' +
@@ -50,7 +52,11 @@ if __name__ == '__main__':
     
     build_lookup_table = True
     lookup_table_path = args.dir
+    resource_type = args.resource
     model_arch = args.arch
+
+    if resource_type not in ['LATENCY', 'ENERGY']:
+        raise ValueError("Lookup tables only used for `LATENCY` and `ENERGY` resource types")
     
     print('Load', model_arch)
     print('--------------------------------------')
@@ -70,26 +76,46 @@ if __name__ == '__main__':
     print('-------------------------------------------')
     
     model = model.cuda()
-    
-    print('Building latency lookup table for', 
-          torch.cuda.get_device_name())
-    if build_lookup_table:
-        fns.build_latency_lookup_table(network_def, lookup_table_path=lookup_table_path, 
-            min_fc_feature_size=MIN_FC_FEATRE_SIZE, 
-            min_conv_feature_size=MIN_CONV_FEATURE_SIZE, 
-            measure_latency_batch_size=MEASURE_LATENCY_BATCH_SIZE,
-            measure_latency_sample_times=MEASURE_LATENCY_SAMPLE_TIMES,
-            verbose=True)
-    print('-------------------------------------------')
-    print('Finish building latency lookup table.')
-    print('    Device:', torch.cuda.get_device_name())
-    print('    Model: ', model_arch)    
-    print('-------------------------------------------')
-    
-    latency = fns.compute_resource(network_def, 'LATENCY', lookup_table_path)
-    print('Computed latency:     ', latency)
-    latency = fns.measure_latency(model, 
-        [MEASURE_LATENCY_BATCH_SIZE, *INPUT_DATA_SHAPE])
-    print('Exact latency:        ', latency)    
-    
-    
+    if resource_type == 'LATENCY':
+        print('Building latency lookup table for', 
+              torch.cuda.get_device_name())
+        if build_lookup_table:
+            fns.build_lookup_table(network_def, lookup_table_path=lookup_table_path, resource_type=resource_type, 
+                min_fc_feature_size=MIN_FC_FEATRE_SIZE, 
+                min_conv_feature_size=MIN_CONV_FEATURE_SIZE, 
+                measure_experiment_batch_size=MEASURE_EXPERIMENT_BATCH_SIZE,
+                measure_experiment_sample_times=MEASURE_EXPERIMENT_SAMPLE_TIMES,
+                verbose=True)
+        print('-------------------------------------------')
+        print('Finish building latency lookup table.')
+        print('    Device:', torch.cuda.get_device_name())
+        print('    Model: ', model_arch)    
+        print('-------------------------------------------')
+        
+        latency = fns.compute_resource(network_def, 'LATENCY', lookup_table_path)
+        print('Computed latency:     ', latency)
+        latency = fns.measure_latency(model, 
+            [MEASURE_EXPERIMENT_BATCH_SIZE, *INPUT_DATA_SHAPE])
+        print('Exact latency:        ', latency)    
+    elif resource_type == 'ENERGY':
+        print('Building energy lookup table for', 
+              torch.cuda.get_device_name())
+        if build_lookup_table:
+            fns.build_lookup_table(network_def, lookup_table_path=lookup_table_path, resource_type=resource_type, 
+                min_fc_feature_size=MIN_FC_FEATRE_SIZE, 
+                min_conv_feature_size=MIN_CONV_FEATURE_SIZE, 
+                measure_experiment_batch_size=MEASURE_EXPERIMENT_BATCH_SIZE,
+                measure_experiment_sample_times=MEASURE_EXPERIMENT_SAMPLE_TIMES,
+                verbose=True)
+        print('-------------------------------------------')
+        print('Finish building energy lookup table.')
+        print('    Device:', torch.cuda.get_device_name())
+        print('    Model: ', model_arch)    
+        print('-------------------------------------------')
+        
+        energy = fns.compute_resource(network_def, 'ENERGY', lookup_table_path)
+        print('Computed energy:     ', energy)
+        energy = fns.measure_energy(model, 
+            [MEASURE_EXPERIMENT_BATCH_SIZE, *INPUT_DATA_SHAPE])
+        print('Exact energy:        ', energy)    
+
