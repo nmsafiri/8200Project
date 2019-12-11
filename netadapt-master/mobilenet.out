@@ -1,0 +1,2581 @@
+Namespace(arch='mobilenet', dir='energy_lut/lut_mobilenet.pkl', resource='ENERGY')
+Load mobilenet
+--------------------------------------
+model.0.0
+     {'is_depthwise': False, 'num_in_channels': 3, 'num_out_channels': 32, 'kernel_size': (3, 3), 'stride': (2, 2), 'padding': (1, 1), 'groups': 1, 'input_feature_map_size': [1, 3, 224, 224], 'output_feature_map_size': [1, 32, 112, 112], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.1.0
+     {'is_depthwise': True, 'num_in_channels': 32, 'num_out_channels': 32, 'kernel_size': (3, 3), 'stride': (1, 1), 'padding': (1, 1), 'groups': 32, 'input_feature_map_size': [1, 32, 112, 112], 'output_feature_map_size': [1, 32, 112, 112], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.1.3
+     {'is_depthwise': False, 'num_in_channels': 32, 'num_out_channels': 64, 'kernel_size': (1, 1), 'stride': (1, 1), 'padding': (0, 0), 'groups': 1, 'input_feature_map_size': [1, 32, 112, 112], 'output_feature_map_size': [1, 64, 112, 112], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.2.0
+     {'is_depthwise': True, 'num_in_channels': 64, 'num_out_channels': 64, 'kernel_size': (3, 3), 'stride': (2, 2), 'padding': (1, 1), 'groups': 64, 'input_feature_map_size': [1, 64, 112, 112], 'output_feature_map_size': [1, 64, 56, 56], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.2.3
+     {'is_depthwise': False, 'num_in_channels': 64, 'num_out_channels': 128, 'kernel_size': (1, 1), 'stride': (1, 1), 'padding': (0, 0), 'groups': 1, 'input_feature_map_size': [1, 64, 56, 56], 'output_feature_map_size': [1, 128, 56, 56], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.3.0
+     {'is_depthwise': True, 'num_in_channels': 128, 'num_out_channels': 128, 'kernel_size': (3, 3), 'stride': (1, 1), 'padding': (1, 1), 'groups': 128, 'input_feature_map_size': [1, 128, 56, 56], 'output_feature_map_size': [1, 128, 56, 56], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.3.3
+     {'is_depthwise': False, 'num_in_channels': 128, 'num_out_channels': 128, 'kernel_size': (1, 1), 'stride': (1, 1), 'padding': (0, 0), 'groups': 1, 'input_feature_map_size': [1, 128, 56, 56], 'output_feature_map_size': [1, 128, 56, 56], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.4.0
+     {'is_depthwise': True, 'num_in_channels': 128, 'num_out_channels': 128, 'kernel_size': (3, 3), 'stride': (2, 2), 'padding': (1, 1), 'groups': 128, 'input_feature_map_size': [1, 128, 56, 56], 'output_feature_map_size': [1, 128, 28, 28], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.4.3
+     {'is_depthwise': False, 'num_in_channels': 128, 'num_out_channels': 256, 'kernel_size': (1, 1), 'stride': (1, 1), 'padding': (0, 0), 'groups': 1, 'input_feature_map_size': [1, 128, 28, 28], 'output_feature_map_size': [1, 256, 28, 28], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.5.0
+     {'is_depthwise': True, 'num_in_channels': 256, 'num_out_channels': 256, 'kernel_size': (3, 3), 'stride': (1, 1), 'padding': (1, 1), 'groups': 256, 'input_feature_map_size': [1, 256, 28, 28], 'output_feature_map_size': [1, 256, 28, 28], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.5.3
+     {'is_depthwise': False, 'num_in_channels': 256, 'num_out_channels': 256, 'kernel_size': (1, 1), 'stride': (1, 1), 'padding': (0, 0), 'groups': 1, 'input_feature_map_size': [1, 256, 28, 28], 'output_feature_map_size': [1, 256, 28, 28], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.6.0
+     {'is_depthwise': True, 'num_in_channels': 256, 'num_out_channels': 256, 'kernel_size': (3, 3), 'stride': (2, 2), 'padding': (1, 1), 'groups': 256, 'input_feature_map_size': [1, 256, 28, 28], 'output_feature_map_size': [1, 256, 14, 14], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.6.3
+     {'is_depthwise': False, 'num_in_channels': 256, 'num_out_channels': 512, 'kernel_size': (1, 1), 'stride': (1, 1), 'padding': (0, 0), 'groups': 1, 'input_feature_map_size': [1, 256, 14, 14], 'output_feature_map_size': [1, 512, 14, 14], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.7.0
+     {'is_depthwise': True, 'num_in_channels': 512, 'num_out_channels': 512, 'kernel_size': (3, 3), 'stride': (1, 1), 'padding': (1, 1), 'groups': 512, 'input_feature_map_size': [1, 512, 14, 14], 'output_feature_map_size': [1, 512, 14, 14], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.7.3
+     {'is_depthwise': False, 'num_in_channels': 512, 'num_out_channels': 512, 'kernel_size': (1, 1), 'stride': (1, 1), 'padding': (0, 0), 'groups': 1, 'input_feature_map_size': [1, 512, 14, 14], 'output_feature_map_size': [1, 512, 14, 14], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.8.0
+     {'is_depthwise': True, 'num_in_channels': 512, 'num_out_channels': 512, 'kernel_size': (3, 3), 'stride': (1, 1), 'padding': (1, 1), 'groups': 512, 'input_feature_map_size': [1, 512, 14, 14], 'output_feature_map_size': [1, 512, 14, 14], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.8.3
+     {'is_depthwise': False, 'num_in_channels': 512, 'num_out_channels': 512, 'kernel_size': (1, 1), 'stride': (1, 1), 'padding': (0, 0), 'groups': 1, 'input_feature_map_size': [1, 512, 14, 14], 'output_feature_map_size': [1, 512, 14, 14], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.9.0
+     {'is_depthwise': True, 'num_in_channels': 512, 'num_out_channels': 512, 'kernel_size': (3, 3), 'stride': (1, 1), 'padding': (1, 1), 'groups': 512, 'input_feature_map_size': [1, 512, 14, 14], 'output_feature_map_size': [1, 512, 14, 14], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.9.3
+     {'is_depthwise': False, 'num_in_channels': 512, 'num_out_channels': 512, 'kernel_size': (1, 1), 'stride': (1, 1), 'padding': (0, 0), 'groups': 1, 'input_feature_map_size': [1, 512, 14, 14], 'output_feature_map_size': [1, 512, 14, 14], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.10.0
+     {'is_depthwise': True, 'num_in_channels': 512, 'num_out_channels': 512, 'kernel_size': (3, 3), 'stride': (1, 1), 'padding': (1, 1), 'groups': 512, 'input_feature_map_size': [1, 512, 14, 14], 'output_feature_map_size': [1, 512, 14, 14], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.10.3
+     {'is_depthwise': False, 'num_in_channels': 512, 'num_out_channels': 512, 'kernel_size': (1, 1), 'stride': (1, 1), 'padding': (0, 0), 'groups': 1, 'input_feature_map_size': [1, 512, 14, 14], 'output_feature_map_size': [1, 512, 14, 14], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.11.0
+     {'is_depthwise': True, 'num_in_channels': 512, 'num_out_channels': 512, 'kernel_size': (3, 3), 'stride': (1, 1), 'padding': (1, 1), 'groups': 512, 'input_feature_map_size': [1, 512, 14, 14], 'output_feature_map_size': [1, 512, 14, 14], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.11.3
+     {'is_depthwise': False, 'num_in_channels': 512, 'num_out_channels': 512, 'kernel_size': (1, 1), 'stride': (1, 1), 'padding': (0, 0), 'groups': 1, 'input_feature_map_size': [1, 512, 14, 14], 'output_feature_map_size': [1, 512, 14, 14], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.12.0
+     {'is_depthwise': True, 'num_in_channels': 512, 'num_out_channels': 512, 'kernel_size': (3, 3), 'stride': (2, 2), 'padding': (1, 1), 'groups': 512, 'input_feature_map_size': [1, 512, 14, 14], 'output_feature_map_size': [1, 512, 7, 7], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.12.3
+     {'is_depthwise': False, 'num_in_channels': 512, 'num_out_channels': 1024, 'kernel_size': (1, 1), 'stride': (1, 1), 'padding': (0, 0), 'groups': 1, 'input_feature_map_size': [1, 512, 7, 7], 'output_feature_map_size': [1, 1024, 7, 7], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.13.0
+     {'is_depthwise': True, 'num_in_channels': 1024, 'num_out_channels': 1024, 'kernel_size': (3, 3), 'stride': (1, 1), 'padding': (1, 1), 'groups': 1024, 'input_feature_map_size': [1, 1024, 7, 7], 'output_feature_map_size': [1, 1024, 7, 7], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+model.13.3
+     {'is_depthwise': False, 'num_in_channels': 1024, 'num_out_channels': 1024, 'kernel_size': (1, 1), 'stride': (1, 1), 'padding': (0, 0), 'groups': 1, 'input_feature_map_size': [1, 1024, 7, 7], 'output_feature_map_size': [1, 1024, 7, 7], 'layer_type_str': 'Conv2d', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+fc
+     {'is_depthwise': False, 'num_in_channels': 1024, 'num_out_channels': 10, 'kernel_size': (1, 1), 'stride': (1, 1), 'padding': (0, 0), 'groups': 1, 'input_feature_map_size': [1, 1024, 1, 1], 'output_feature_map_size': [1, 10, 1, 1], 'layer_type_str': 'Linear', 'before_squared_pixel_shuffle_factor': 1, 'after_squared_pixel_shuffle_factor': 1} 
+
+-------------------------------------------
+Number of FLOPs:       567726592.0
+Number of weights:     3195328.0
+Number of parameters:  3195328.0
+-------------------------------------------
+Building energy lookup table for Tesla V100-SXM3-32GB
+functions.py: build_lookup_table() begins
+-------------------------------------------
+Measuring layer model.0.0 :
+Is depthwise: False
+Num in channels: 3
+Num out channels: 32
+Kernel size: (3, 3)
+Stride: (2, 2)
+Padding: (1, 1)
+Groups: 1
+Input feature map size: [1, 3, 224, 224]
+Layer type: Conv2d
+    Start measuring num_in_channels = 3
+Percent: [##########] 100.00% (4/4) energy: 0.18027685999999923 
+    Finish measuring num_in_channels = 3
+-------------------------------------------
+Measuring layer model.1.0 :
+Is depthwise: True
+Num in channels: 32
+Num out channels: 32
+Kernel size: (3, 3)
+Stride: (1, 1)
+Padding: (1, 1)
+Groups: 32
+Input feature map size: [1, 32, 112, 112]
+Layer type: Conv2d
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (1/1) energy: 0.2515882399999992 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (1/1) energy: 0.21626877999999905 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (1/1) energy: 0.18455795999999913 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (1/1) energy: 0.12219530000000015 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.1.3 :
+Is depthwise: False
+Num in channels: 32
+Num out channels: 64
+Kernel size: (1, 1)
+Stride: (1, 1)
+Padding: (0, 0)
+Groups: 1
+Input feature map size: [1, 32, 112, 112]
+Layer type: Conv2d
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (8/8) energy: 0.2005373199999988 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (8/8) energy: 0.18799435999999917 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (8/8) energy: 0.16598077999999938 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (8/8) energy: 0.1531215199999993 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.2.0 :
+Is depthwise: True
+Num in channels: 64
+Num out channels: 64
+Kernel size: (3, 3)
+Stride: (2, 2)
+Padding: (1, 1)
+Groups: 64
+Input feature map size: [1, 64, 112, 112]
+Layer type: Conv2d
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (1/1) energy: 0.2879883399999982 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (1/1) energy: 0.27364905999999917 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (1/1) energy: 0.2654652399999997 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (1/1) energy: 0.20686159999999978 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (1/1) energy: 0.1918711799999999 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (1/1) energy: 0.1691105 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (1/1) energy: 0.12445369999999997 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (1/1) energy: 0.10623218000000009 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.2.3 :
+Is depthwise: False
+Num in channels: 64
+Num out channels: 128
+Kernel size: (1, 1)
+Stride: (1, 1)
+Padding: (0, 0)
+Groups: 1
+Input feature map size: [1, 64, 56, 56]
+Layer type: Conv2d
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (16/16) energy: 0.15482033999999978 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (16/16) energy: 0.12350793999999997 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (16/16) energy: 0.14899471999999978 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (16/16) energy: 0.1155864799999995 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (16/16) energy: 0.1389215799999993 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (16/16) energy: 0.10712947999999993 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (16/16) energy: 0.1279931800000002 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (16/16) energy: 0.07834870000000017 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.3.0 :
+Is depthwise: True
+Num in channels: 128
+Num out channels: 128
+Kernel size: (3, 3)
+Stride: (1, 1)
+Padding: (1, 1)
+Groups: 128
+Input feature map size: [1, 128, 56, 56]
+Layer type: Conv2d
+    Start measuring num_in_channels = 128
+Percent: [##########] 100.00% (1/1) energy: 0.274460499999999 
+    Finish measuring num_in_channels = 128
+    Start measuring num_in_channels = 120
+Percent: [##########] 100.00% (1/1) energy: 0.2780739999999986 
+    Finish measuring num_in_channels = 120
+    Start measuring num_in_channels = 112
+Percent: [##########] 100.00% (1/1) energy: 0.2686896999999984 
+    Finish measuring num_in_channels = 112
+    Start measuring num_in_channels = 104
+Percent: [##########] 100.00% (1/1) energy: 0.254964079999999 
+    Finish measuring num_in_channels = 104
+    Start measuring num_in_channels = 96
+Percent: [##########] 100.00% (1/1) energy: 0.21445357999999862 
+    Finish measuring num_in_channels = 96
+    Start measuring num_in_channels = 88
+Percent: [##########] 100.00% (1/1) energy: 0.20329555999999882 
+    Finish measuring num_in_channels = 88
+    Start measuring num_in_channels = 80
+Percent: [##########] 100.00% (1/1) energy: 0.19580631999999876 
+    Finish measuring num_in_channels = 80
+    Start measuring num_in_channels = 72
+Percent: [##########] 100.00% (1/1) energy: 0.19371657999999886 
+    Finish measuring num_in_channels = 72
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (1/1) energy: 0.18874851999999875 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (1/1) energy: 0.17453891999999938 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (1/1) energy: 0.17616395999999931 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (1/1) energy: 0.13998954000000052 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (1/1) energy: 0.12417224000000038 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (1/1) energy: 0.09997387999999967 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (1/1) energy: 0.10476554000000064 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (1/1) energy: 0.09386210000000023 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.3.3 :
+Is depthwise: False
+Num in channels: 128
+Num out channels: 128
+Kernel size: (1, 1)
+Stride: (1, 1)
+Padding: (0, 0)
+Groups: 1
+Input feature map size: [1, 128, 56, 56]
+Layer type: Conv2d
+    Start measuring num_in_channels = 128
+Percent: [##########] 100.00% (16/16) energy: 0.18277543999999918 
+    Finish measuring num_in_channels = 128
+    Start measuring num_in_channels = 120
+Percent: [##########] 100.00% (16/16) energy: 0.15472791999999957 
+    Finish measuring num_in_channels = 120
+    Start measuring num_in_channels = 112
+Percent: [##########] 100.00% (16/16) energy: 0.13950416000000015 
+    Finish measuring num_in_channels = 112
+    Start measuring num_in_channels = 104
+Percent: [##########] 100.00% (16/16) energy: 0.16503693999999977 
+    Finish measuring num_in_channels = 104
+    Start measuring num_in_channels = 96
+Percent: [##########] 100.00% (16/16) energy: 0.1593592600000002 
+    Finish measuring num_in_channels = 96
+    Start measuring num_in_channels = 88
+Percent: [##########] 100.00% (16/16) energy: 0.16512169999999998 
+    Finish measuring num_in_channels = 88
+    Start measuring num_in_channels = 80
+Percent: [##########] 100.00% (16/16) energy: 0.14181501999999965 
+    Finish measuring num_in_channels = 80
+    Start measuring num_in_channels = 72
+Percent: [##########] 100.00% (16/16) energy: 0.15783183999999928 
+    Finish measuring num_in_channels = 72
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (16/16) energy: 0.1582752399999989 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (16/16) energy: 0.12336954000000001 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (16/16) energy: 0.12567290000000028 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (16/16) energy: 0.10566428000000011 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (16/16) energy: 0.1358566799999995 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (16/16) energy: 0.10995583999999996 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (16/16) energy: 0.12163662000000008 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (16/16) energy: 0.09283854000000015 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.4.0 :
+Is depthwise: True
+Num in channels: 128
+Num out channels: 128
+Kernel size: (3, 3)
+Stride: (2, 2)
+Padding: (1, 1)
+Groups: 128
+Input feature map size: [1, 128, 56, 56]
+Layer type: Conv2d
+    Start measuring num_in_channels = 128
+Percent: [##########] 100.00% (1/1) energy: 0.1831547000000008 
+    Finish measuring num_in_channels = 128
+    Start measuring num_in_channels = 120
+Percent: [##########] 100.00% (1/1) energy: 0.18413370000000093 
+    Finish measuring num_in_channels = 120
+    Start measuring num_in_channels = 112
+Percent: [##########] 100.00% (1/1) energy: 0.19308378000000082 
+    Finish measuring num_in_channels = 112
+    Start measuring num_in_channels = 104
+Percent: [##########] 100.00% (1/1) energy: 0.17221988000000044 
+    Finish measuring num_in_channels = 104
+    Start measuring num_in_channels = 96
+Percent: [##########] 100.00% (1/1) energy: 0.17168316000000045 
+    Finish measuring num_in_channels = 96
+    Start measuring num_in_channels = 88
+Percent: [##########] 100.00% (1/1) energy: 0.16170898000000025 
+    Finish measuring num_in_channels = 88
+    Start measuring num_in_channels = 80
+Percent: [##########] 100.00% (1/1) energy: 0.1311613200000001 
+    Finish measuring num_in_channels = 80
+    Start measuring num_in_channels = 72
+Percent: [##########] 100.00% (1/1) energy: 0.1599050200000001 
+    Finish measuring num_in_channels = 72
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (1/1) energy: 0.1277134000000001 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (1/1) energy: 0.12000286000000024 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (1/1) energy: 0.11763170000000038 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (1/1) energy: 0.10706462000000033 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (1/1) energy: 0.08716341999999977 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (1/1) energy: 0.09038072000000005 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (1/1) energy: 0.0780958199999997 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (1/1) energy: 0.07395129999999998 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.4.3 :
+Is depthwise: False
+Num in channels: 128
+Num out channels: 256
+Kernel size: (1, 1)
+Stride: (1, 1)
+Padding: (0, 0)
+Groups: 1
+Input feature map size: [1, 128, 28, 28]
+Layer type: Conv2d
+    Start measuring num_in_channels = 128
+Percent: [##########] 100.00% (32/32) energy: 0.0952729600000002 
+    Finish measuring num_in_channels = 128
+    Start measuring num_in_channels = 120
+Percent: [##########] 100.00% (32/32) energy: 0.1041529400000004 
+    Finish measuring num_in_channels = 120
+    Start measuring num_in_channels = 112
+Percent: [##########] 100.00% (32/32) energy: 0.11231184000000016 
+    Finish measuring num_in_channels = 112
+    Start measuring num_in_channels = 104
+Percent: [##########] 100.00% (32/32) energy: 0.11053753999999984 
+    Finish measuring num_in_channels = 104
+    Start measuring num_in_channels = 96
+Percent: [##########] 100.00% (32/32) energy: 0.10671876000000015 
+    Finish measuring num_in_channels = 96
+    Start measuring num_in_channels = 88
+Percent: [##########] 100.00% (32/32) energy: 0.10501485999999961 
+    Finish measuring num_in_channels = 88
+    Start measuring num_in_channels = 80
+Percent: [##########] 100.00% (32/32) energy: 0.10677573999999977 
+    Finish measuring num_in_channels = 80
+    Start measuring num_in_channels = 72
+Percent: [##########] 100.00% (32/32) energy: 0.1275425999999999 
+    Finish measuring num_in_channels = 72
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (32/32) energy: 0.06845097999999988 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (32/32) energy: 0.07813786000000002 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (32/32) energy: 0.09273246000000042 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (32/32) energy: 0.07726938000000008 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (32/32) energy: 0.07526496000000008 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (32/32) energy: 0.07606266000000009 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (32/32) energy: 0.08757372000000017 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (32/32) energy: 0.08634183999999996 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.5.0 :
+Is depthwise: True
+Num in channels: 256
+Num out channels: 256
+Kernel size: (3, 3)
+Stride: (1, 1)
+Padding: (1, 1)
+Groups: 256
+Input feature map size: [1, 256, 28, 28]
+Layer type: Conv2d
+    Start measuring num_in_channels = 256
+Percent: [##########] 100.00% (1/1) energy: 0.19183421999999956 
+    Finish measuring num_in_channels = 256
+    Start measuring num_in_channels = 248
+Percent: [##########] 100.00% (1/1) energy: 0.1815044599999996 
+    Finish measuring num_in_channels = 248
+    Start measuring num_in_channels = 240
+Percent: [##########] 100.00% (1/1) energy: 0.15910289999999971 
+    Finish measuring num_in_channels = 240
+    Start measuring num_in_channels = 232
+Percent: [##########] 100.00% (1/1) energy: 0.17802201999999961 
+    Finish measuring num_in_channels = 232
+    Start measuring num_in_channels = 224
+Percent: [##########] 100.00% (1/1) energy: 0.1780335799999997 
+    Finish measuring num_in_channels = 224
+    Start measuring num_in_channels = 216
+Percent: [##########] 100.00% (1/1) energy: 0.16967171999999955 
+    Finish measuring num_in_channels = 216
+    Start measuring num_in_channels = 208
+Percent: [##########] 100.00% (1/1) energy: 0.14692155999999953 
+    Finish measuring num_in_channels = 208
+    Start measuring num_in_channels = 200
+Percent: [##########] 100.00% (1/1) energy: 0.13180311999999958 
+    Finish measuring num_in_channels = 200
+    Start measuring num_in_channels = 192
+Percent: [##########] 100.00% (1/1) energy: 0.1613075199999995 
+    Finish measuring num_in_channels = 192
+    Start measuring num_in_channels = 184
+Percent: [##########] 100.00% (1/1) energy: 0.1616631599999995 
+    Finish measuring num_in_channels = 184
+    Start measuring num_in_channels = 176
+Percent: [##########] 100.00% (1/1) energy: 0.14337345999999945 
+    Finish measuring num_in_channels = 176
+    Start measuring num_in_channels = 168
+Percent: [##########] 100.00% (1/1) energy: 0.16577881999999952 
+    Finish measuring num_in_channels = 168
+    Start measuring num_in_channels = 160
+Percent: [##########] 100.00% (1/1) energy: 0.12632225999999944 
+    Finish measuring num_in_channels = 160
+    Start measuring num_in_channels = 152
+Percent: [##########] 100.00% (1/1) energy: 0.1511495599999993 
+    Finish measuring num_in_channels = 152
+    Start measuring num_in_channels = 144
+Percent: [##########] 100.00% (1/1) energy: 0.1282287199999995 
+    Finish measuring num_in_channels = 144
+    Start measuring num_in_channels = 136
+Percent: [##########] 100.00% (1/1) energy: 0.12295859999999953 
+    Finish measuring num_in_channels = 136
+    Start measuring num_in_channels = 128
+Percent: [##########] 100.00% (1/1) energy: 0.1512387199999996 
+    Finish measuring num_in_channels = 128
+    Start measuring num_in_channels = 120
+Percent: [##########] 100.00% (1/1) energy: 0.13043543999999938 
+    Finish measuring num_in_channels = 120
+    Start measuring num_in_channels = 112
+Percent: [##########] 100.00% (1/1) energy: 0.11449970000000051 
+    Finish measuring num_in_channels = 112
+    Start measuring num_in_channels = 104
+Percent: [##########] 100.00% (1/1) energy: 0.11439904000000055 
+    Finish measuring num_in_channels = 104
+    Start measuring num_in_channels = 96
+Percent: [##########] 100.00% (1/1) energy: 0.11087634000000043 
+    Finish measuring num_in_channels = 96
+    Start measuring num_in_channels = 88
+Percent: [##########] 100.00% (1/1) energy: 0.09618937999999956 
+    Finish measuring num_in_channels = 88
+    Start measuring num_in_channels = 80
+Percent: [##########] 100.00% (1/1) energy: 0.10815675999999985 
+    Finish measuring num_in_channels = 80
+    Start measuring num_in_channels = 72
+Percent: [##########] 100.00% (1/1) energy: 0.10788492 
+    Finish measuring num_in_channels = 72
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (1/1) energy: 0.10486759999999987 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (1/1) energy: 0.09947879999999985 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (1/1) energy: 0.09829217999999984 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (1/1) energy: 0.1011364599999997 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (1/1) energy: 0.09312880000000041 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (1/1) energy: 0.09177274000000042 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (1/1) energy: 0.08878744000000036 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (1/1) energy: 0.08526712000000033 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.5.3 :
+Is depthwise: False
+Num in channels: 256
+Num out channels: 256
+Kernel size: (1, 1)
+Stride: (1, 1)
+Padding: (0, 0)
+Groups: 1
+Input feature map size: [1, 256, 28, 28]
+Layer type: Conv2d
+    Start measuring num_in_channels = 256
+Percent: [##########] 100.00% (32/32) energy: 0.12957628000000027 
+    Finish measuring num_in_channels = 256
+    Start measuring num_in_channels = 248
+Percent: [##########] 100.00% (32/32) energy: 0.11989416000000025 
+    Finish measuring num_in_channels = 248
+    Start measuring num_in_channels = 240
+Percent: [##########] 100.00% (32/32) energy: 0.11854757999999968 
+    Finish measuring num_in_channels = 240
+    Start measuring num_in_channels = 232
+Percent: [##########] 100.00% (32/32) energy: 0.12658612000000027 
+    Finish measuring num_in_channels = 232
+    Start measuring num_in_channels = 224
+Percent: [##########] 100.00% (32/32) energy: 0.1544103200000003 
+    Finish measuring num_in_channels = 224
+    Start measuring num_in_channels = 216
+Percent: [##########] 100.00% (32/32) energy: 0.12593444000000023 
+    Finish measuring num_in_channels = 216
+    Start measuring num_in_channels = 208
+Percent: [##########] 100.00% (32/32) energy: 0.12466976000000024 
+    Finish measuring num_in_channels = 208
+    Start measuring num_in_channels = 200
+Percent: [##########] 100.00% (32/32) energy: 0.13565379999999966 
+    Finish measuring num_in_channels = 200
+    Start measuring num_in_channels = 192
+Percent: [##########] 100.00% (32/32) energy: 0.1499413799999996 
+    Finish measuring num_in_channels = 192
+    Start measuring num_in_channels = 184
+Percent: [##########] 100.00% (32/32) energy: 0.11918727999999988 
+    Finish measuring num_in_channels = 184
+    Start measuring num_in_channels = 176
+Percent: [##########] 100.00% (32/32) energy: 0.11505915999999998 
+    Finish measuring num_in_channels = 176
+    Start measuring num_in_channels = 168
+Percent: [##########] 100.00% (32/32) energy: 0.11340707999999972 
+    Finish measuring num_in_channels = 168
+    Start measuring num_in_channels = 160
+Percent: [##########] 100.00% (32/32) energy: 0.11266424000000005 
+    Finish measuring num_in_channels = 160
+    Start measuring num_in_channels = 152
+Percent: [##########] 100.00% (32/32) energy: 0.11306790000000044 
+    Finish measuring num_in_channels = 152
+    Start measuring num_in_channels = 144
+Percent: [##########] 100.00% (32/32) energy: 0.10335663999999992 
+    Finish measuring num_in_channels = 144
+    Start measuring num_in_channels = 136
+Percent: [##########] 100.00% (32/32) energy: 0.10646360000000003 
+    Finish measuring num_in_channels = 136
+    Start measuring num_in_channels = 128
+Percent: [##########] 100.00% (32/32) energy: 0.10344284000000012 
+    Finish measuring num_in_channels = 128
+    Start measuring num_in_channels = 120
+Percent: [##########] 100.00% (32/32) energy: 0.1103402000000004 
+    Finish measuring num_in_channels = 120
+    Start measuring num_in_channels = 112
+Percent: [##########] 100.00% (32/32) energy: 0.1079646800000003 
+    Finish measuring num_in_channels = 112
+    Start measuring num_in_channels = 104
+Percent: [##########] 100.00% (32/32) energy: 0.10132395999999998 
+    Finish measuring num_in_channels = 104
+    Start measuring num_in_channels = 96
+Percent: [##########] 100.00% (32/32) energy: 0.10422981999999968 
+    Finish measuring num_in_channels = 96
+    Start measuring num_in_channels = 88
+Percent: [##########] 100.00% (32/32) energy: 0.08904878000000004 
+    Finish measuring num_in_channels = 88
+    Start measuring num_in_channels = 80
+Percent: [##########] 100.00% (32/32) energy: 0.1004165600000002 
+    Finish measuring num_in_channels = 80
+    Start measuring num_in_channels = 72
+Percent: [##########] 100.00% (32/32) energy: 0.07491451999999964 
+    Finish measuring num_in_channels = 72
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (32/32) energy: 0.09308524000000003 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (32/32) energy: 0.0981732600000003 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (32/32) energy: 0.0816308000000001 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (32/32) energy: 0.08333457999999998 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (32/32) energy: 0.07501922000000008 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (32/32) energy: 0.08958110000000019 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (32/32) energy: 0.07428927999999989 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (32/32) energy: 0.08613899999999992 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.6.0 :
+Is depthwise: True
+Num in channels: 256
+Num out channels: 256
+Kernel size: (3, 3)
+Stride: (2, 2)
+Padding: (1, 1)
+Groups: 256
+Input feature map size: [1, 256, 28, 28]
+Layer type: Conv2d
+    Start measuring num_in_channels = 256
+Percent: [##########] 100.00% (1/1) energy: 0.11170920000000052 
+    Finish measuring num_in_channels = 256
+    Start measuring num_in_channels = 248
+Percent: [##########] 100.00% (1/1) energy: 0.15309342000000054 
+    Finish measuring num_in_channels = 248
+    Start measuring num_in_channels = 240
+Percent: [##########] 100.00% (1/1) energy: 0.14158908000000098 
+    Finish measuring num_in_channels = 240
+    Start measuring num_in_channels = 232
+Percent: [##########] 100.00% (1/1) energy: 0.12032310000000061 
+    Finish measuring num_in_channels = 232
+    Start measuring num_in_channels = 224
+Percent: [##########] 100.00% (1/1) energy: 0.10961904000000057 
+    Finish measuring num_in_channels = 224
+    Start measuring num_in_channels = 216
+Percent: [##########] 100.00% (1/1) energy: 0.1232098800000006 
+    Finish measuring num_in_channels = 216
+    Start measuring num_in_channels = 208
+Percent: [##########] 100.00% (1/1) energy: 0.11715120000000066 
+    Finish measuring num_in_channels = 208
+    Start measuring num_in_channels = 200
+Percent: [##########] 100.00% (1/1) energy: 0.12597188000000067 
+    Finish measuring num_in_channels = 200
+    Start measuring num_in_channels = 192
+Percent: [##########] 100.00% (1/1) energy: 0.11378122000000064 
+    Finish measuring num_in_channels = 192
+    Start measuring num_in_channels = 184
+Percent: [##########] 100.00% (1/1) energy: 0.10292012000000053 
+    Finish measuring num_in_channels = 184
+    Start measuring num_in_channels = 176
+Percent: [##########] 100.00% (1/1) energy: 0.09863898000000057 
+    Finish measuring num_in_channels = 176
+    Start measuring num_in_channels = 168
+Percent: [##########] 100.00% (1/1) energy: 0.10775696000000062 
+    Finish measuring num_in_channels = 168
+    Start measuring num_in_channels = 160
+Percent: [##########] 100.00% (1/1) energy: 0.10785692000000056 
+    Finish measuring num_in_channels = 160
+    Start measuring num_in_channels = 152
+Percent: [##########] 100.00% (1/1) energy: 0.11022332000000068 
+    Finish measuring num_in_channels = 152
+    Start measuring num_in_channels = 144
+Percent: [##########] 100.00% (1/1) energy: 0.10613076000000043 
+    Finish measuring num_in_channels = 144
+    Start measuring num_in_channels = 136
+Percent: [##########] 100.00% (1/1) energy: 0.10606268000000053 
+    Finish measuring num_in_channels = 136
+    Start measuring num_in_channels = 128
+Percent: [##########] 100.00% (1/1) energy: 0.10172330000000046 
+    Finish measuring num_in_channels = 128
+    Start measuring num_in_channels = 120
+Percent: [##########] 100.00% (1/1) energy: 0.1020006800000005 
+    Finish measuring num_in_channels = 120
+    Start measuring num_in_channels = 112
+Percent: [##########] 100.00% (1/1) energy: 0.10010574000000046 
+    Finish measuring num_in_channels = 112
+    Start measuring num_in_channels = 104
+Percent: [##########] 100.00% (1/1) energy: 0.09636734000000033 
+    Finish measuring num_in_channels = 104
+    Start measuring num_in_channels = 96
+Percent: [##########] 100.00% (1/1) energy: 0.08175458000000001 
+    Finish measuring num_in_channels = 96
+    Start measuring num_in_channels = 88
+Percent: [##########] 100.00% (1/1) energy: 0.08089725999999996 
+    Finish measuring num_in_channels = 88
+    Start measuring num_in_channels = 80
+Percent: [##########] 100.00% (1/1) energy: 0.07855872 
+    Finish measuring num_in_channels = 80
+    Start measuring num_in_channels = 72
+Percent: [##########] 100.00% (1/1) energy: 0.07836189999999972 
+    Finish measuring num_in_channels = 72
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (1/1) energy: 0.07780015999999976 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (1/1) energy: 0.07375841999999978 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (1/1) energy: 0.09736945999999967 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (1/1) energy: 0.07637461999999985 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (1/1) energy: 0.07102145999999994 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (1/1) energy: 0.07022721999999991 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (1/1) energy: 0.0696301599999999 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (1/1) energy: 0.07114199999999991 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.6.3 :
+Is depthwise: False
+Num in channels: 256
+Num out channels: 512
+Kernel size: (1, 1)
+Stride: (1, 1)
+Padding: (0, 0)
+Groups: 1
+Input feature map size: [1, 256, 14, 14]
+Layer type: Conv2d
+    Start measuring num_in_channels = 256
+Percent: [##########] 100.00% (64/64) energy: 0.08191590000000003 
+    Finish measuring num_in_channels = 256
+    Start measuring num_in_channels = 248
+Percent: [##########] 100.00% (64/64) energy: 0.09712992000000022 
+    Finish measuring num_in_channels = 248
+    Start measuring num_in_channels = 240
+Percent: [##########] 100.00% (64/64) energy: 0.09394938000000023 
+    Finish measuring num_in_channels = 240
+    Start measuring num_in_channels = 232
+Percent: [##########] 100.00% (64/64) energy: 0.07797524000000024 
+    Finish measuring num_in_channels = 232
+    Start measuring num_in_channels = 224
+Percent: [##########] 100.00% (64/64) energy: 0.08071338000000022 
+    Finish measuring num_in_channels = 224
+    Start measuring num_in_channels = 216
+Percent: [##########] 100.00% (64/64) energy: 0.09407328000000045 
+    Finish measuring num_in_channels = 216
+    Start measuring num_in_channels = 208
+Percent: [##########] 100.00% (64/64) energy: 0.09471408000000048 
+    Finish measuring num_in_channels = 208
+    Start measuring num_in_channels = 200
+Percent: [##########] 100.00% (64/64) energy: 0.09346864000000038 
+    Finish measuring num_in_channels = 200
+    Start measuring num_in_channels = 192
+Percent: [##########] 100.00% (64/64) energy: 0.09369290000000044 
+    Finish measuring num_in_channels = 192
+    Start measuring num_in_channels = 184
+Percent: [##########] 100.00% (64/64) energy: 0.09453208000000042 
+    Finish measuring num_in_channels = 184
+    Start measuring num_in_channels = 176
+Percent: [##########] 100.00% (64/64) energy: 0.09344606000000041 
+    Finish measuring num_in_channels = 176
+    Start measuring num_in_channels = 168
+Percent: [##########] 100.00% (64/64) energy: 0.09174824000000038 
+    Finish measuring num_in_channels = 168
+    Start measuring num_in_channels = 160
+Percent: [##########] 100.00% (64/64) energy: 0.09265566000000044 
+    Finish measuring num_in_channels = 160
+    Start measuring num_in_channels = 152
+Percent: [##########] 100.00% (64/64) energy: 0.08877112000000038 
+    Finish measuring num_in_channels = 152
+    Start measuring num_in_channels = 144
+Percent: [##########] 100.00% (64/64) energy: 0.0953476000000004 
+    Finish measuring num_in_channels = 144
+    Start measuring num_in_channels = 136
+Percent: [##########] 100.00% (64/64) energy: 0.08888054000000038 
+    Finish measuring num_in_channels = 136
+    Start measuring num_in_channels = 128
+Percent: [##########] 100.00% (64/64) energy: 0.08793162000000034 
+    Finish measuring num_in_channels = 128
+    Start measuring num_in_channels = 120
+Percent: [##########] 100.00% (64/64) energy: 0.08763996000000038 
+    Finish measuring num_in_channels = 120
+    Start measuring num_in_channels = 112
+Percent: [##########] 100.00% (64/64) energy: 0.09371256000000013 
+    Finish measuring num_in_channels = 112
+    Start measuring num_in_channels = 104
+Percent: [##########] 100.00% (64/64) energy: 0.07565130000000003 
+    Finish measuring num_in_channels = 104
+    Start measuring num_in_channels = 96
+Percent: [##########] 100.00% (64/64) energy: 0.06686559999999989 
+    Finish measuring num_in_channels = 96
+    Start measuring num_in_channels = 88
+Percent: [##########] 100.00% (64/64) energy: 0.08538609999999995 
+    Finish measuring num_in_channels = 88
+    Start measuring num_in_channels = 80
+Percent: [##########] 100.00% (64/64) energy: 0.07024152000000004 
+    Finish measuring num_in_channels = 80
+    Start measuring num_in_channels = 72
+Percent: [##########] 100.00% (64/64) energy: 0.07188535999999973 
+    Finish measuring num_in_channels = 72
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (64/64) energy: 0.07427381999999971 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (64/64) energy: 0.08256454000000013 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (64/64) energy: 0.07186829999999989 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (64/64) energy: 0.0565389000000001 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (64/64) energy: 0.09360176000000031 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (64/64) energy: 0.059832740000000106 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (64/64) energy: 0.07182674000000012 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (64/64) energy: 0.07162110000000015 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.7.0 :
+Is depthwise: True
+Num in channels: 512
+Num out channels: 512
+Kernel size: (3, 3)
+Stride: (1, 1)
+Padding: (1, 1)
+Groups: 512
+Input feature map size: [1, 512, 14, 14]
+Layer type: Conv2d
+    Start measuring num_in_channels = 512
+Percent: [##########] 100.00% (1/1) energy: 0.1053685800000002 
+    Finish measuring num_in_channels = 512
+    Start measuring num_in_channels = 504
+Percent: [##########] 100.00% (1/1) energy: 0.13962751999999964 
+    Finish measuring num_in_channels = 504
+    Start measuring num_in_channels = 496
+Percent: [##########] 100.00% (1/1) energy: 0.11576109999999964 
+    Finish measuring num_in_channels = 496
+    Start measuring num_in_channels = 488
+Percent: [##########] 100.00% (1/1) energy: 0.14976485999999964 
+    Finish measuring num_in_channels = 488
+    Start measuring num_in_channels = 480
+Percent: [##########] 100.00% (1/1) energy: 0.1399958599999996 
+    Finish measuring num_in_channels = 480
+    Start measuring num_in_channels = 472
+Percent: [##########] 100.00% (1/1) energy: 0.12278277999999972 
+    Finish measuring num_in_channels = 472
+    Start measuring num_in_channels = 464
+Percent: [##########] 100.00% (1/1) energy: 0.11774003999999949 
+    Finish measuring num_in_channels = 464
+    Start measuring num_in_channels = 456
+Percent: [##########] 100.00% (1/1) energy: 0.11776819999999953 
+    Finish measuring num_in_channels = 456
+    Start measuring num_in_channels = 448
+Percent: [##########] 100.00% (1/1) energy: 0.12264217999999973 
+    Finish measuring num_in_channels = 448
+    Start measuring num_in_channels = 440
+Percent: [##########] 100.00% (1/1) energy: 0.10901425999999974 
+    Finish measuring num_in_channels = 440
+    Start measuring num_in_channels = 432
+Percent: [##########] 100.00% (1/1) energy: 0.10837367999999982 
+    Finish measuring num_in_channels = 432
+    Start measuring num_in_channels = 424
+Percent: [##########] 100.00% (1/1) energy: 0.11575049999999963 
+    Finish measuring num_in_channels = 424
+    Start measuring num_in_channels = 416
+Percent: [##########] 100.00% (1/1) energy: 0.11689681999999978 
+    Finish measuring num_in_channels = 416
+    Start measuring num_in_channels = 408
+Percent: [##########] 100.00% (1/1) energy: 0.12104588000000002 
+    Finish measuring num_in_channels = 408
+    Start measuring num_in_channels = 400
+Percent: [##########] 100.00% (1/1) energy: 0.12117434000000009 
+    Finish measuring num_in_channels = 400
+    Start measuring num_in_channels = 392
+Percent: [##########] 100.00% (1/1) energy: 0.12054374000000008 
+    Finish measuring num_in_channels = 392
+    Start measuring num_in_channels = 384
+Percent: [##########] 100.00% (1/1) energy: 0.11175920000000014 
+    Finish measuring num_in_channels = 384
+    Start measuring num_in_channels = 376
+Percent: [##########] 100.00% (1/1) energy: 0.12248388000000021 
+    Finish measuring num_in_channels = 376
+    Start measuring num_in_channels = 368
+Percent: [##########] 100.00% (1/1) energy: 0.11458482000000025 
+    Finish measuring num_in_channels = 368
+    Start measuring num_in_channels = 360
+Percent: [##########] 100.00% (1/1) energy: 0.10866808000000022 
+    Finish measuring num_in_channels = 360
+    Start measuring num_in_channels = 352
+Percent: [##########] 100.00% (1/1) energy: 0.10975206000000019 
+    Finish measuring num_in_channels = 352
+    Start measuring num_in_channels = 344
+Percent: [##########] 100.00% (1/1) energy: 0.1092390400000002 
+    Finish measuring num_in_channels = 344
+    Start measuring num_in_channels = 336
+Percent: [##########] 100.00% (1/1) energy: 0.10728572000000022 
+    Finish measuring num_in_channels = 336
+    Start measuring num_in_channels = 328
+Percent: [##########] 100.00% (1/1) energy: 0.10109540000000018 
+    Finish measuring num_in_channels = 328
+    Start measuring num_in_channels = 320
+Percent: [##########] 100.00% (1/1) energy: 0.10584538000000021 
+    Finish measuring num_in_channels = 320
+    Start measuring num_in_channels = 312
+Percent: [##########] 100.00% (1/1) energy: 0.10689674000000021 
+    Finish measuring num_in_channels = 312
+    Start measuring num_in_channels = 304
+Percent: [##########] 100.00% (1/1) energy: 0.10579190000000019 
+    Finish measuring num_in_channels = 304
+    Start measuring num_in_channels = 296
+Percent: [##########] 100.00% (1/1) energy: 0.10853614000000027 
+    Finish measuring num_in_channels = 296
+    Start measuring num_in_channels = 288
+Percent: [##########] 100.00% (1/1) energy: 0.10008878000000017 
+    Finish measuring num_in_channels = 288
+    Start measuring num_in_channels = 280
+Percent: [##########] 100.00% (1/1) energy: 0.09739090000000018 
+    Finish measuring num_in_channels = 280
+    Start measuring num_in_channels = 272
+Percent: [##########] 100.00% (1/1) energy: 0.10025396000000007 
+    Finish measuring num_in_channels = 272
+    Start measuring num_in_channels = 264
+Percent: [##########] 100.00% (1/1) energy: 0.10232676000000006 
+    Finish measuring num_in_channels = 264
+    Start measuring num_in_channels = 256
+Percent: [##########] 100.00% (1/1) energy: 0.1082192000000001 
+    Finish measuring num_in_channels = 256
+    Start measuring num_in_channels = 248
+Percent: [##########] 100.00% (1/1) energy: 0.10818728000000001 
+    Finish measuring num_in_channels = 248
+    Start measuring num_in_channels = 240
+Percent: [##########] 100.00% (1/1) energy: 0.09344438000000008 
+    Finish measuring num_in_channels = 240
+    Start measuring num_in_channels = 232
+Percent: [##########] 100.00% (1/1) energy: 0.09864818000000011 
+    Finish measuring num_in_channels = 232
+    Start measuring num_in_channels = 224
+Percent: [##########] 100.00% (1/1) energy: 0.0952368800000001 
+    Finish measuring num_in_channels = 224
+    Start measuring num_in_channels = 216
+Percent: [##########] 100.00% (1/1) energy: 0.07732762000000021 
+    Finish measuring num_in_channels = 216
+    Start measuring num_in_channels = 208
+Percent: [##########] 100.00% (1/1) energy: 0.07778483999999991 
+    Finish measuring num_in_channels = 208
+    Start measuring num_in_channels = 200
+Percent: [##########] 100.00% (1/1) energy: 0.0835680799999998 
+    Finish measuring num_in_channels = 200
+    Start measuring num_in_channels = 192
+Percent: [##########] 100.00% (1/1) energy: 0.0790255600000001 
+    Finish measuring num_in_channels = 192
+    Start measuring num_in_channels = 184
+Percent: [##########] 100.00% (1/1) energy: 0.08317305999999995 
+    Finish measuring num_in_channels = 184
+    Start measuring num_in_channels = 176
+Percent: [##########] 100.00% (1/1) energy: 0.08018026000000006 
+    Finish measuring num_in_channels = 176
+    Start measuring num_in_channels = 168
+Percent: [##########] 100.00% (1/1) energy: 0.08188867999999992 
+    Finish measuring num_in_channels = 168
+    Start measuring num_in_channels = 160
+Percent: [##########] 100.00% (1/1) energy: 0.08072897999999992 
+    Finish measuring num_in_channels = 160
+    Start measuring num_in_channels = 152
+Percent: [##########] 100.00% (1/1) energy: 0.07652843999999999 
+    Finish measuring num_in_channels = 152
+    Start measuring num_in_channels = 144
+Percent: [##########] 100.00% (1/1) energy: 0.10160713999999983 
+    Finish measuring num_in_channels = 144
+    Start measuring num_in_channels = 136
+Percent: [##########] 100.00% (1/1) energy: 0.07181367999999994 
+    Finish measuring num_in_channels = 136
+    Start measuring num_in_channels = 128
+Percent: [##########] 100.00% (1/1) energy: 0.07487599999999993 
+    Finish measuring num_in_channels = 128
+    Start measuring num_in_channels = 120
+Percent: [##########] 100.00% (1/1) energy: 0.07595335999999994 
+    Finish measuring num_in_channels = 120
+    Start measuring num_in_channels = 112
+Percent: [##########] 100.00% (1/1) energy: 0.08138990000000025 
+    Finish measuring num_in_channels = 112
+    Start measuring num_in_channels = 104
+Percent: [##########] 100.00% (1/1) energy: 0.07004938000000019 
+    Finish measuring num_in_channels = 104
+    Start measuring num_in_channels = 96
+Percent: [##########] 100.00% (1/1) energy: 0.07908516000000021 
+    Finish measuring num_in_channels = 96
+    Start measuring num_in_channels = 88
+Percent: [##########] 100.00% (1/1) energy: 0.07765278000000017 
+    Finish measuring num_in_channels = 88
+    Start measuring num_in_channels = 80
+Percent: [##########] 100.00% (1/1) energy: 0.07260926000000018 
+    Finish measuring num_in_channels = 80
+    Start measuring num_in_channels = 72
+Percent: [##########] 100.00% (1/1) energy: 0.06931614000000016 
+    Finish measuring num_in_channels = 72
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (1/1) energy: 0.07017846000000015 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (1/1) energy: 0.07318804000000015 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (1/1) energy: 0.07250678000000016 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (1/1) energy: 0.0563662800000001 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (1/1) energy: 0.07007222000000017 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (1/1) energy: 0.07233744000000018 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (1/1) energy: 0.06375264000000014 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (1/1) energy: 0.05697670000000009 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.7.3 :
+Is depthwise: False
+Num in channels: 512
+Num out channels: 512
+Kernel size: (1, 1)
+Stride: (1, 1)
+Padding: (0, 0)
+Groups: 1
+Input feature map size: [1, 512, 14, 14]
+Layer type: Conv2d
+    Start measuring num_in_channels = 512
+Percent: [##########] 100.00% (64/64) energy: 0.10422098000000016 
+    Finish measuring num_in_channels = 512
+    Start measuring num_in_channels = 504
+Percent: [##########] 100.00% (64/64) energy: 0.10621379999999965 
+    Finish measuring num_in_channels = 504
+    Start measuring num_in_channels = 496
+Percent: [##########] 100.00% (64/64) energy: 0.10460626000000044 
+    Finish measuring num_in_channels = 496
+    Start measuring num_in_channels = 488
+Percent: [##########] 100.00% (64/64) energy: 0.11408224000000053 
+    Finish measuring num_in_channels = 488
+    Start measuring num_in_channels = 480
+Percent: [##########] 100.00% (64/64) energy: 0.11106510000000043 
+    Finish measuring num_in_channels = 480
+    Start measuring num_in_channels = 472
+Percent: [##########] 100.00% (64/64) energy: 0.10542960000000055 
+    Finish measuring num_in_channels = 472
+    Start measuring num_in_channels = 464
+Percent: [##########] 100.00% (64/64) energy: 0.1054954800000005 
+    Finish measuring num_in_channels = 464
+    Start measuring num_in_channels = 456
+Percent: [##########] 100.00% (64/64) energy: 0.10440135999999976 
+    Finish measuring num_in_channels = 456
+    Start measuring num_in_channels = 448
+Percent: [##########] 100.00% (64/64) energy: 0.10610872000000054 
+    Finish measuring num_in_channels = 448
+    Start measuring num_in_channels = 440
+Percent: [##########] 100.00% (64/64) energy: 0.10293867999999987 
+    Finish measuring num_in_channels = 440
+    Start measuring num_in_channels = 432
+Percent: [##########] 100.00% (64/64) energy: 0.10243024000000014 
+    Finish measuring num_in_channels = 432
+    Start measuring num_in_channels = 424
+Percent: [##########] 100.00% (64/64) energy: 0.09951816000000004 
+    Finish measuring num_in_channels = 424
+    Start measuring num_in_channels = 416
+Percent: [##########] 100.00% (64/64) energy: 0.10362862000000006 
+    Finish measuring num_in_channels = 416
+    Start measuring num_in_channels = 408
+Percent: [##########] 100.00% (64/64) energy: 0.1030229600000001 
+    Finish measuring num_in_channels = 408
+    Start measuring num_in_channels = 400
+Percent: [##########] 100.00% (64/64) energy: 0.10132778000000009 
+    Finish measuring num_in_channels = 400
+    Start measuring num_in_channels = 392
+Percent: [##########] 100.00% (64/64) energy: 0.09880292000000022 
+    Finish measuring num_in_channels = 392
+    Start measuring num_in_channels = 384
+Percent: [##########] 100.00% (64/64) energy: 0.09844005999999957 
+    Finish measuring num_in_channels = 384
+    Start measuring num_in_channels = 376
+Percent: [##########] 100.00% (64/64) energy: 0.09990980000000035 
+    Finish measuring num_in_channels = 376
+    Start measuring num_in_channels = 368
+Percent: [##########] 100.00% (64/64) energy: 0.10019486000000002 
+    Finish measuring num_in_channels = 368
+    Start measuring num_in_channels = 360
+Percent: [##########] 100.00% (64/64) energy: 0.10498429999999985 
+    Finish measuring num_in_channels = 360
+    Start measuring num_in_channels = 352
+Percent: [##########] 100.00% (64/64) energy: 0.08986501999999988 
+    Finish measuring num_in_channels = 352
+    Start measuring num_in_channels = 344
+Percent: [##########] 100.00% (64/64) energy: 0.09372674000000016 
+    Finish measuring num_in_channels = 344
+    Start measuring num_in_channels = 336
+Percent: [##########] 100.00% (64/64) energy: 0.08858611999999953 
+    Finish measuring num_in_channels = 336
+    Start measuring num_in_channels = 328
+Percent: [##########] 100.00% (64/64) energy: 0.08273493999999973 
+    Finish measuring num_in_channels = 328
+    Start measuring num_in_channels = 320
+Percent: [##########] 100.00% (64/64) energy: 0.09672304000000015 
+    Finish measuring num_in_channels = 320
+    Start measuring num_in_channels = 312
+Percent: [##########] 100.00% (64/64) energy: 0.09736029999999966 
+    Finish measuring num_in_channels = 312
+    Start measuring num_in_channels = 304
+Percent: [##########] 100.00% (64/64) energy: 0.09772569999999964 
+    Finish measuring num_in_channels = 304
+    Start measuring num_in_channels = 296
+Percent: [##########] 100.00% (64/64) energy: 0.09693716000000036 
+    Finish measuring num_in_channels = 296
+    Start measuring num_in_channels = 288
+Percent: [##########] 100.00% (64/64) energy: 0.10097818000000006 
+    Finish measuring num_in_channels = 288
+    Start measuring num_in_channels = 280
+Percent: [##########] 100.00% (64/64) energy: 0.07745176000000015 
+    Finish measuring num_in_channels = 280
+    Start measuring num_in_channels = 272
+Percent: [##########] 100.00% (64/64) energy: 0.09607402 9999995
+    Finish measuring num_in_channels = 272
+    Start measuring num_in_channels = 264
+Percent: [##########] 100.00% (64/64) energy: 0.0960013400000001 
+    Finish measuring num_in_channels = 264
+    Start measuring num_in_channels = 256
+Percent: [##########] 100.00% (64/64) energy: 0.09980513999999997 
+    Finish measuring num_in_channels = 256
+    Start measuring num_in_channels = 248
+Percent: [##########] 100.00% (64/64) energy: 0.09423673999999965 
+    Finish measuring num_in_channels = 248
+    Start measuring num_in_channels = 240
+Percent: [##########] 100.00% (64/64) energy: 0.08846303999999983 
+    Finish measuring num_in_channels = 240
+    Start measuring num_in_channels = 232
+Percent: [##########] 100.00% (64/64) energy: 0.08656229999999986 
+    Finish measuring num_in_channels = 232
+    Start measuring num_in_channels = 224
+Percent: [##########] 100.00% (64/64) energy: 0.0906763 99999995
+    Finish measuring num_in_channels = 224
+    Start measuring num_in_channels = 216
+Percent: [##########] 100.00% (64/64) energy: 0.07714412000000007 
+    Finish measuring num_in_channels = 216
+    Start measuring num_in_channels = 208
+Percent: [##########] 100.00% (64/64) energy: 0.09334151999999994 
+    Finish measuring num_in_channels = 208
+    Start measuring num_in_channels = 200
+Percent: [##########] 100.00% (64/64) energy: 0.08608965999999996 
+    Finish measuring num_in_channels = 200
+    Start measuring num_in_channels = 192
+Percent: [##########] 100.00% (64/64) energy: 0.08880069999999993 
+    Finish measuring num_in_channels = 192
+    Start measuring num_in_channels = 184
+Percent: [##########] 100.00% (64/64) energy: 0.09566899999999996 
+    Finish measuring num_in_channels = 184
+    Start measuring num_in_channels = 176
+Percent: [##########] 100.00% (64/64) energy: 0.09302328000000014 
+    Finish measuring num_in_channels = 176
+    Start measuring num_in_channels = 168
+Percent: [##########] 100.00% (64/64) energy: 0.09774402000000028 
+    Finish measuring num_in_channels = 168
+    Start measuring num_in_channels = 160
+Percent: [##########] 100.00% (64/64) energy: 0.09235464000000025 
+    Finish measuring num_in_channels = 160
+    Start measuring num_in_channels = 152
+Percent: [##########] 100.00% (64/64) energy: 0.09250588000000017 
+    Finish measuring num_in_channels = 152
+    Start measuring num_in_channels = 144
+Percent: [##########] 100.00% (64/64) energy: 0.08836687999999968 
+    Finish measuring num_in_channels = 144
+    Start measuring num_in_channels = 136
+Percent: [##########] 100.00% (64/64) energy: 0.09027258000000013 
+    Finish measuring num_in_channels = 136
+    Start measuring num_in_channels = 128
+Percent: [##########] 100.00% (64/64) energy: 0.08506178000000011 
+    Finish measuring num_in_channels = 128
+    Start measuring num_in_channels = 120
+Percent: [##########] 100.00% (64/64) energy: 0.09311844000000022 
+    Finish measuring num_in_channels = 120
+    Start measuring num_in_channels = 112
+Percent: [##########] 100.00% (64/64) energy: 0.07499415999999995 
+    Finish measuring num_in_channels = 112
+    Start measuring num_in_channels = 104
+Percent: [##########] 100.00% (64/64) energy: 0.09015938000000022 
+    Finish measuring num_in_channels = 104
+    Start measuring num_in_channels = 96
+Percent: [##########] 100.00% (64/64) energy: 0.07291291999999991 
+    Finish measuring num_in_channels = 96
+    Start measuring num_in_channels = 88
+Percent: [##########] 100.00% (64/64) energy: 0.08704529999999981 
+    Finish measuring num_in_channels = 88
+    Start measuring num_in_channels = 80
+Percent: [##########] 100.00% (64/64) energy: 0.08751085999999984 
+    Finish measuring num_in_channels = 80
+    Start measuring num_in_channels = 72
+Percent: [##########] 100.00% (64/64) energy: 0.06629345999999975 
+    Finish measuring num_in_channels = 72
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (64/64) energy: 0.061805260000000056 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (64/64) energy: 0.07194345999999989 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (64/64) energy: 0.06322684000000008 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (64/64) energy: 0.07125294000000015 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (64/64) energy: 0.07220508000000013 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (64/64) energy: 0.06982600000000007 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (64/64) energy: 0.07082976000000009 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (64/64) energy: 0.06986619999999989 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.8.0 :
+    Find previous layer model.7.0 that has the same properties
+-------------------------------------------
+Measuring layer model.8.3 :
+    Find previous layer model.7.3 that has the same properties
+-------------------------------------------
+Measuring layer model.9.0 :
+    Find previous layer model.7.0 that has the same properties
+-------------------------------------------
+Measuring layer model.9.3 :
+    Find previous layer model.7.3 that has the same properties
+-------------------------------------------
+Measuring layer model.10.0 :
+    Find previous layer model.7.0 that has the same properties
+-------------------------------------------
+Measuring layer model.10.3 :
+    Find previous layer model.7.3 that has the same properties
+-------------------------------------------
+Measuring layer model.11.0 :
+    Find previous layer model.7.0 that has the same properties
+-------------------------------------------
+Measuring layer model.11.3 :
+    Find previous layer model.7.3 that has the same properties
+-------------------------------------------
+Measuring layer model.12.0 :
+Is depthwise: True
+Num in channels: 512
+Num out channels: 512
+Kernel size: (3, 3)
+Stride: (2, 2)
+Padding: (1, 1)
+Groups: 512
+Input feature map size: [1, 512, 14, 14]
+Layer type: Conv2d
+    Start measuring num_in_channels = 512
+Percent: [##########] 100.00% (1/1) energy: 0.08855454000000011 
+    Finish measuring num_in_channels = 512
+    Start measuring num_in_channels = 504
+Percent: [##########] 100.00% (1/1) energy: 0.08432114000000004 
+    Finish measuring num_in_channels = 504
+    Start measuring num_in_channels = 496
+Percent: [##########] 100.00% (1/1) energy: 0.0788929600000002 
+    Finish measuring num_in_channels = 496
+    Start measuring num_in_channels = 488
+Percent: [##########] 100.00% (1/1) energy: 0.09132196000000017 
+    Finish measuring num_in_channels = 488
+    Start measuring num_in_channels = 480
+Percent: [##########] 100.00% (1/1) energy: 0.09000697999999979 
+    Finish measuring num_in_channels = 480
+    Start measuring num_in_channels = 472
+Percent: [##########] 100.00% (1/1) energy: 0.09032579999999983 
+    Finish measuring num_in_channels = 472
+    Start measuring num_in_channels = 464
+Percent: [##########] 100.00% (1/1) energy: 0.09021648000000007 
+    Finish measuring num_in_channels = 464
+    Start measuring num_in_channels = 456
+Percent: [##########] 100.00% (1/1) energy: 0.09091898000000023 
+    Finish measuring num_in_channels = 456
+    Start measuring num_in_channels = 448
+Percent: [##########] 100.00% (1/1) energy: 0.09713951999999983 
+    Finish measuring num_in_channels = 448
+    Start measuring num_in_channels = 440
+Percent: [##########] 100.00% (1/1) energy: 0.09953337999999974 
+    Finish measuring num_in_channels = 440
+    Start measuring num_in_channels = 432
+Percent: [##########] 100.00% (1/1) energy: 0.09212886 
+    Finish measuring num_in_channels = 432
+    Start measuring num_in_channels = 424
+Percent: [##########] 100.00% (1/1) energy: 0.07857809999999982 
+    Finish measuring num_in_channels = 424
+    Start measuring num_in_channels = 416
+Percent: [##########] 100.00% (1/1) energy: 0.08316291999999999 
+    Finish measuring num_in_channels = 416
+    Start measuring num_in_channels = 408
+Percent: [##########] 100.00% (1/1) energy: 0.08061293999999997 
+    Finish measuring num_in_channels = 408
+    Start measuring num_in_channels = 400
+Percent: [##########] 100.00% (1/1) energy: 0.08117159999999994 
+    Finish measuring num_in_channels = 400
+    Start measuring num_in_channels = 392
+Percent: [##########] 100.00% (1/1) energy: 0.08308262000000007 
+    Finish measuring num_in_channels = 392
+    Start measuring num_in_channels = 384
+Percent: [##########] 100.00% (1/1) energy: 0.08275202000000002 
+    Finish measuring num_in_channels = 384
+    Start measuring num_in_channels = 376
+Percent: [##########] 100.00% (1/1) energy: 0.08003578 
+    Finish measuring num_in_channels = 376
+    Start measuring num_in_channels = 368
+Percent: [##########] 100.00% (1/1) energy: 0.07995534000000006 
+    Finish measuring num_in_channels = 368
+    Start measuring num_in_channels = 360
+Percent: [##########] 100.00% (1/1) energy: 0.08128998000000001 
+    Finish measuring num_in_channels = 360
+    Start measuring num_in_channels = 352
+Percent: [##########] 100.00% (1/1) energy: 0.08353223999999994 
+    Finish measuring num_in_channels = 352
+    Start measuring num_in_channels = 344
+Percent: [##########] 100.00% (1/1) energy: 0.07767735999999999 
+    Finish measuring num_in_channels = 344
+    Start measuring num_in_channels = 336
+Percent: [##########] 100.00% (1/1) energy: 0.08315197999999999 
+    Finish measuring num_in_channels = 336
+    Start measuring num_in_channels = 328
+Percent: [##########] 100.00% (1/1) energy: 0.08231657999999996 
+    Finish measuring num_in_channels = 328
+    Start measuring num_in_channels = 320
+Percent: [##########] 100.00% (1/1) energy: 0.07816084000000002 
+    Finish measuring num_in_channels = 320
+    Start measuring num_in_channels = 312
+Percent: [##########] 100.00% (1/1) energy: 0.08064521999999999 
+    Finish measuring num_in_channels = 312
+    Start measuring num_in_channels = 304
+Percent: [##########] 100.00% (1/1) energy: 0.07660463999999995 
+    Finish measuring num_in_channels = 304
+    Start measuring num_in_channels = 296
+Percent: [##########] 100.00% (1/1) energy: 0.056170639999999904 
+    Finish measuring num_in_channels = 296
+    Start measuring num_in_channels = 288
+Percent: [##########] 100.00% (1/1) energy: 0.0748715999999999 
+    Finish measuring num_in_channels = 288
+    Start measuring num_in_channels = 280
+Percent: [##########] 100.00% (1/1) energy: 0.07590809999999998 
+    Finish measuring num_in_channels = 280
+    Start measuring num_in_channels = 272
+Percent: [##########] 100.00% (1/1) energy: 0.07930749999999992 
+    Finish measuring num_in_channels = 272
+    Start measuring num_in_channels = 264
+Percent: [##########] 100.00% (1/1) energy: 0.08072112 
+    Finish measuring num_in_channels = 264
+    Start measuring num_in_channels = 256
+Percent: [##########] 100.00% (1/1) energy: 0.07784912000000001 
+    Finish measuring num_in_channels = 256
+    Start measuring num_in_channels = 248
+Percent: [##########] 100.00% (1/1) energy: 0.07593677999999995 
+    Finish measuring num_in_channels = 248
+    Start measuring num_in_channels = 240
+Percent: [##########] 100.00% (1/1) energy: 0.07754189999999997 
+    Finish measuring num_in_channels = 240
+    Start measuring num_in_channels = 232
+Percent: [##########] 100.00% (1/1) energy: 0.07711352000000002 
+    Finish measuring num_in_channels = 232
+    Start measuring num_in_channels = 224
+Percent: [##########] 100.00% (1/1) energy: 0.07419408000000002 
+    Finish measuring num_in_channels = 224
+    Start measuring num_in_channels = 216
+Percent: [##########] 100.00% (1/1) energy: 0.06939049999999994 
+    Finish measuring num_in_channels = 216
+    Start measuring num_in_channels = 208
+Percent: [##########] 100.00% (1/1) energy: 0.06969131999999996 
+    Finish measuring num_in_channels = 208
+    Start measuring num_in_channels = 200
+Percent: [##########] 100.00% (1/1) energy: 0.07741819999999996 
+    Finish measuring num_in_channels = 200
+    Start measuring num_in_channels = 192
+Percent: [##########] 100.00% (1/1) energy: 0.06763943999999995 
+    Finish measuring num_in_channels = 192
+    Start measuring num_in_channels = 184
+Percent: [##########] 100.00% (1/1) energy: 0.06794499999999994 
+    Finish measuring num_in_channels = 184
+    Start measuring num_in_channels = 176
+Percent: [##########] 100.00% (1/1) energy: 0.09757578000000015 
+    Finish measuring num_in_channels = 176
+    Start measuring num_in_channels = 168
+Percent: [##########] 100.00% (1/1) energy: 0.07205343999999998 
+    Finish measuring num_in_channels = 168
+    Start measuring num_in_channels = 160
+Percent: [##########] 100.00% (1/1) energy: 0.07501475999999993 
+    Finish measuring num_in_channels = 160
+    Start measuring num_in_channels = 152
+Percent: [##########] 100.00% (1/1) energy: 0.07266467999999988 
+    Finish measuring num_in_channels = 152
+    Start measuring num_in_channels = 144
+Percent: [##########] 100.00% (1/1) energy: 0.07373151999999995 
+    Finish measuring num_in_channels = 144
+    Start measuring num_in_channels = 136
+Percent: [##########] 100.00% (1/1) energy: 0.06592581999999995 
+    Finish measuring num_in_channels = 136
+    Start measuring num_in_channels = 128
+Percent: [##########] 100.00% (1/1) energy: 0.06865947999999991 
+    Finish measuring num_in_channels = 128
+    Start measuring num_in_channels = 120
+Percent: [##########] 100.00% (1/1) energy: 0.07369011999999993 
+    Finish measuring num_in_channels = 120
+    Start measuring num_in_channels = 112
+Percent: [##########] 100.00% (1/1) energy: 0.07305489999999996 
+    Finish measuring num_in_channels = 112
+    Start measuring num_in_channels = 104
+Percent: [##########] 100.00% (1/1) energy: 0.07261367999999996 
+    Finish measuring num_in_channels = 104
+    Start measuring num_in_channels = 96
+Percent: [##########] 100.00% (1/1) energy: 0.07086311999999995 
+    Finish measuring num_in_channels = 96
+    Start measuring num_in_channels = 88
+Percent: [##########] 100.00% (1/1) energy: 0.07123985999999992 
+    Finish measuring num_in_channels = 88
+    Start measuring num_in_channels = 80
+Percent: [##########] 100.00% (1/1) energy: 0.07294309999999989 
+    Finish measuring num_in_channels = 80
+    Start measuring num_in_channels = 72
+Percent: [##########] 100.00% (1/1) energy: 0.07085999999999984 
+    Finish measuring num_in_channels = 72
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (1/1) energy: 0.0755195599999998 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (1/1) energy: 0.07596549999999987 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (1/1) energy: 0.07407145999999994 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (1/1) energy: 0.07333433999999986 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (1/1) energy: 0.07393911999999982 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (1/1) energy: 0.07190309999999994 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (1/1) energy: 0.05441587999999993 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (1/1) energy: 0.06963075999999987 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.12.3 :
+Is depthwise: False
+Num in channels: 512
+Num out channels: 1024
+Kernel size: (1, 1)
+Stride: (1, 1)
+Padding: (0, 0)
+Groups: 1
+Input feature map size: [1, 512, 7, 7]
+Layer type: Conv2d
+    Start measuring num_in_channels = 512
+Percent: [##########] 100.00% (128/128) energy: 0.07222128000000022 
+    Finish measuring num_in_channels = 512
+    Start measuring num_in_channels = 504
+Percent: [##########] 100.00% (128/128) energy: 0.07627929999999997 
+    Finish measuring num_in_channels = 504
+    Start measuring num_in_channels = 496
+Percent: [##########] 100.00% (128/128) energy: 0.07568703999999994 
+    Finish measuring num_in_channels = 496
+    Start measuring num_in_channels = 488
+Percent: [##########] 100.00% (128/128) energy: 0.0730725199999998 
+    Finish measuring num_in_channels = 488
+    Start measuring num_in_channels = 480
+Percent: [##########] 100.00% (128/128) energy: 0.09103539999999967 
+    Finish measuring num_in_channels = 480
+    Start measuring num_in_channels = 472
+Percent: [##########] 100.00% (128/128) energy: 0.0859636599999996 
+    Finish measuring num_in_channels = 472
+    Start measuring num_in_channels = 464
+Percent: [##########] 100.00% (128/128) energy: 0.07541613999999977 
+    Finish measuring num_in_channels = 464
+    Start measuring num_in_channels = 456
+Percent: [##########] 100.00% (128/128) energy: 0.09273186000000017 
+    Finish measuring num_in_channels = 456
+    Start measuring num_in_channels = 448
+Percent: [##########] 100.00% (128/128) energy: 0.07187187999999975 
+    Finish measuring num_in_channels = 448
+    Start measuring num_in_channels = 440
+Percent: [##########] 100.00% (128/128) energy: 0.07851312000000016 
+    Finish measuring num_in_channels = 440
+    Start measuring num_in_channels = 432
+Percent: [##########] 100.00% (128/128) energy: 0.07273544000000005 
+    Finish measuring num_in_channels = 432
+    Start measuring num_in_channels = 424
+Percent: [##########] 100.00% (128/128) energy: 0.09211147999999993 
+    Finish measuring num_in_channels = 424
+    Start measuring num_in_channels = 416
+Percent: [##########] 100.00% (128/128) energy: 0.07374431999999996 
+    Finish measuring num_in_channels = 416
+    Start measuring num_in_channels = 408
+Percent: [##########] 100.00% (128/128) energy: 0.07343645999999984 
+    Finish measuring num_in_channels = 408
+    Start measuring num_in_channels = 400
+Percent: [##########] 100.00% (128/128) energy: 0.07319011999999979 
+    Finish measuring num_in_channels = 400
+    Start measuring num_in_channels = 392
+Percent: [##########] 100.00% (128/128) energy: 0.07439006000000006 
+    Finish measuring num_in_channels = 392
+    Start measuring num_in_channels = 384
+Percent: [##########] 100.00% (128/128) energy: 0.07496307999999992 
+    Finish measuring num_in_channels = 384
+    Start measuring num_in_channels = 376
+Percent: [##########] 100.00% (128/128) energy: 0.08835447999999993 
+    Finish measuring num_in_channels = 376
+    Start measuring num_in_channels = 368
+Percent: [##########] 100.00% (128/128) energy: 0.07583067999999989 
+    Finish measuring num_in_channels = 368
+    Start measuring num_in_channels = 360
+Percent: [##########] 100.00% (128/128) energy: 0.07163047999999993 
+    Finish measuring num_in_channels = 360
+    Start measuring num_in_channels = 352
+Percent: [##########] 100.00% (128/128) energy: 0.08805968000000029 
+    Finish measuring num_in_channels = 352
+    Start measuring num_in_channels = 344
+Percent: [##########] 100.00% (128/128) energy: 0.07282000000000018 
+    Finish measuring num_in_channels = 344
+    Start measuring num_in_channels = 336
+Percent: [##########] 100.00% (128/128) energy: 0.07412944000000006 
+    Finish measuring num_in_channels = 336
+    Start measuring num_in_channels = 328
+Percent: [##########] 100.00% (128/128) energy: 0.07361110000000018 
+    Finish measuring num_in_channels = 328
+    Start measuring num_in_channels = 320
+Percent: [##########] 100.00% (128/128) energy: 0.0742180600000002 
+    Finish measuring num_in_channels = 320
+    Start measuring num_in_channels = 312
+Percent: [##########] 100.00% (128/128) energy: 0.07198160000000002 
+    Finish measuring num_in_channels = 312
+    Start measuring num_in_channels = 304
+Percent: [##########] 100.00% (128/128) energy: 0.07212318000000019 
+    Finish measuring num_in_channels = 304
+    Start measuring num_in_channels = 296
+Percent: [##########] 100.00% (128/128) energy: 0.06680190000000019 
+    Finish measuring num_in_channels = 296
+    Start measuring num_in_channels = 288
+Percent: [##########] 100.00% (128/128) energy: 0.07303196000000016 
+    Finish measuring num_in_channels = 288
+    Start measuring num_in_channels = 280
+Percent: [##########] 100.00% (128/128) energy: 0.0781261000000002 
+    Finish measuring num_in_channels = 280
+    Start measuring num_in_channels = 272
+Percent: [##########] 100.00% (128/128) energy: 0.07187468000000014 
+    Finish measuring num_in_channels = 272
+    Start measuring num_in_channels = 264
+Percent: [##########] 100.00% (128/128) energy: 0.07336638000000018 
+    Finish measuring num_in_channels = 264
+    Start measuring num_in_channels = 256
+Percent: [##########] 100.00% (128/128) energy: 0.07462144000000012 
+    Finish measuring num_in_channels = 256
+    Start measuring num_in_channels = 248
+Percent: [##########] 100.00% (128/128) energy: 0.07364592000000018 
+    Finish measuring num_in_channels = 248
+    Start measuring num_in_channels = 240
+Percent: [##########] 100.00% (128/128) energy: 0.06647552000000023 
+    Finish measuring num_in_channels = 240
+    Start measuring num_in_channels = 232
+Percent: [##########] 100.00% (128/128) energy: 0.0713464599999999 
+    Finish measuring num_in_channels = 232
+    Start measuring num_in_channels = 224
+Percent: [##########] 100.00% (128/128) energy: 0.07197324000000019 
+    Finish measuring num_in_channels = 224
+    Start measuring num_in_channels = 216
+Percent: [##########] 100.00% (128/128) energy: 0.0643878600000001 
+    Finish measuring num_in_channels = 216
+    Start measuring num_in_channels = 208
+Percent: [##########] 100.00% (128/128) energy: 0.07162320000000008 
+    Finish measuring num_in_channels = 208
+    Start measuring num_in_channels = 200
+Percent: [##########] 100.00% (128/128) energy: 0.07111095999999995 
+    Finish measuring num_in_channels = 200
+    Start measuring num_in_channels = 192
+Percent: [##########] 100.00% (128/128) energy: 0.059519560000000006 
+    Finish measuring num_in_channels = 192
+    Start measuring num_in_channels = 184
+Percent: [##########] 100.00% (128/128) energy: 0.07183901999999986 
+    Finish measuring num_in_channels = 184
+    Start measuring num_in_channels = 176
+Percent: [##########] 100.00% (128/128) energy: 0.07115158 0000006
+    Finish measuring num_in_channels = 176
+    Start measuring num_in_channels = 168
+Percent: [##########] 100.00% (128/128) energy: 0.07060655999999998 
+    Finish measuring num_in_channels = 168
+    Start measuring num_in_channels = 160
+Percent: [##########] 100.00% (128/128) energy: 0.07007203999999992 
+    Finish measuring num_in_channels = 160
+    Start measuring num_in_channels = 152
+Percent: [##########] 100.00% (128/128) energy: 0.0919401199999999 
+    Finish measuring num_in_channels = 152
+    Start measuring num_in_channels = 144
+Percent: [##########] 100.00% (128/128) energy: 0.06919685999999985 
+    Finish measuring num_in_channels = 144
+    Start measuring num_in_channels = 136
+Percent: [##########] 100.00% (128/128) energy: 0.07309993999999985 
+    Finish measuring num_in_channels = 136
+    Start measuring num_in_channels = 128
+Percent: [##########] 100.00% (128/128) energy: 0.0717398199999999 
+    Finish measuring num_in_channels = 128
+    Start measuring num_in_channels = 120
+Percent: [##########] 100.00% (128/128) energy: 0.06986113999999985 
+    Finish measuring num_in_channels = 120
+    Start measuring num_in_channels = 112
+Percent: [##########] 100.00% (128/128) energy: 0.06924851999999979 
+    Finish measuring num_in_channels = 112
+    Start measuring num_in_channels = 104
+Percent: [##########] 100.00% (128/128) energy: 0.07095925999999997 
+    Finish measuring num_in_channels = 104
+    Start measuring num_in_channels = 96
+Percent: [##########] 100.00% (128/128) energy: 0.07081039999999988 
+    Finish measuring num_in_channels = 96
+    Start measuring num_in_channels = 88
+Percent: [##########] 100.00% (128/128) energy: 0.0729216399999999 
+    Finish measuring num_in_channels = 88
+    Start measuring num_in_channels = 80
+Percent: [##########] 100.00% (128/128) energy: 0.07011455999999994 
+    Finish measuring num_in_channels = 80
+    Start measuring num_in_channels = 72
+Percent: [##########] 100.00% (128/128) energy: 0.07063529999999998 
+    Finish measuring num_in_channels = 72
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (128/128) energy: 0.06837848000000002 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (128/128) energy: 0.06957551999999988 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (128/128) energy: 0.0722407399999999 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (128/128) energy: 0.06905215999999993 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (128/128) energy: 0.07473505999999994 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (128/128) energy: 0.06995421999999989 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (128/128) energy: 0.07268125999999996 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (128/128) energy: 0.06725817999999997 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.13.0 :
+Is depthwise: True
+Num in channels: 1024
+Num out channels: 1024
+Kernel size: (3, 3)
+Stride: (1, 1)
+Padding: (1, 1)
+Groups: 1024
+Input feature map size: [1, 1024, 7, 7]
+Layer type: Conv2d
+    Start measuring num_in_channels = 1024
+Percent: [##########] 100.00% (1/1) energy: 0.10448898 
+    Finish measuring num_in_channels = 1024
+    Start measuring num_in_channels = 1016
+Percent: [##########] 100.00% (1/1) energy: 0.10030556000000011 
+    Finish measuring num_in_channels = 1016
+    Start measuring num_in_channels = 1008
+Percent: [##########] 100.00% (1/1) energy: 0.0886079400000001 
+    Finish measuring num_in_channels = 1008
+    Start measuring num_in_channels = 1000
+Percent: [##########] 100.00% (1/1) energy: 0.08859801999999956 
+    Finish measuring num_in_channels = 1000
+    Start measuring num_in_channels = 992
+Percent: [##########] 100.00% (1/1) energy: 0.09784224000000025 
+    Finish measuring num_in_channels = 992
+    Start measuring num_in_channels = 984
+Percent: [##########] 100.00% (1/1) energy: 0.08432118000000031 
+    Finish measuring num_in_channels = 984
+    Start measuring num_in_channels = 976
+Percent: [##########] 100.00% (1/1) energy: 0.10954992000000063 
+    Finish measuring num_in_channels = 976
+    Start measuring num_in_channels = 968
+Percent: [##########] 100.00% (1/1) energy: 0.08396114000000006 
+    Finish measuring num_in_channels = 968
+    Start measuring num_in_channels = 960
+Percent: [##########] 100.00% (1/1) energy: 0.09437569999999948 
+    Finish measuring num_in_channels = 960
+    Start measuring num_in_channels = 952
+Percent: [##########] 100.00% (1/1) energy: 0.10157621999999938 
+    Finish measuring num_in_channels = 952
+    Start measuring num_in_channels = 944
+Percent: [##########] 100.00% (1/1) energy: 0.09669886000000026 
+    Finish measuring num_in_channels = 944
+    Start measuring num_in_channels = 936
+Percent: [##########] 100.00% (1/1) energy: 0.10040518000000008 
+    Finish measuring num_in_channels = 936
+    Start measuring num_in_channels = 928
+Percent: [##########] 100.00% (1/1) energy: 0.09789746000000003 
+    Finish measuring num_in_channels = 928
+    Start measuring num_in_channels = 920
+Percent: [##########] 100.00% (1/1) energy: 0.11500738000000005 
+    Finish measuring num_in_channels = 920
+    Start measuring num_in_channels = 912
+Percent: [##########] 100.00% (1/1) energy: 0.08973643999999996 
+    Finish measuring num_in_channels = 912
+    Start measuring num_in_channels = 904
+Percent: [##########] 100.00% (1/1) energy: 0.10474297999999987 
+    Finish measuring num_in_channels = 904
+    Start measuring num_in_channels = 896
+Percent: [##########] 100.00% (1/1) energy: 0.09729955999999984 
+    Finish measuring num_in_channels = 896
+    Start measuring num_in_channels = 888
+Percent: [##########] 100.00% (1/1) energy: 0.09840257999999988 
+    Finish measuring num_in_channels = 888
+    Start measuring num_in_channels = 880
+Percent: [##########] 100.00% (1/1) energy: 0.0981918599999998 
+    Finish measuring num_in_channels = 880
+    Start measuring num_in_channels = 872
+Percent: [##########] 100.00% (1/1) energy: 0.0958486799999998 
+    Finish measuring num_in_channels = 872
+    Start measuring num_in_channels = 864
+Percent: [##########] 100.00% (1/1) energy: 0.10302617999999981 
+    Finish measuring num_in_channels = 864
+    Start measuring num_in_channels = 856
+Percent: [##########] 100.00% (1/1) energy: 0.09597780000000007 
+    Finish measuring num_in_channels = 856
+    Start measuring num_in_channels = 848
+Percent: [##########] 100.00% (1/1) energy: 0.1268731400000002 
+    Finish measuring num_in_channels = 848
+    Start measuring num_in_channels = 840
+Percent: [##########] 100.00% (1/1) energy: 0.10189243999999983 
+    Finish measuring num_in_channels = 840
+    Start measuring num_in_channels = 832
+Percent: [##########] 100.00% (1/1) energy: 0.09486731999999987 
+    Finish measuring num_in_channels = 832
+    Start measuring num_in_channels = 824
+Percent: [##########] 100.00% (1/1) energy: 0.08342063999999985 
+    Finish measuring num_in_channels = 824
+    Start measuring num_in_channels = 816
+Percent: [##########] 100.00% (1/1) energy: 0.09702195999999984 
+    Finish measuring num_in_channels = 816
+    Start measuring num_in_channels = 808
+Percent: [##########] 100.00% (1/1) energy: 0.09824931999999992 
+    Finish measuring num_in_channels = 808
+    Start measuring num_in_channels = 800
+Percent: [##########] 100.00% (1/1) energy: 0.09906499999999989 
+    Finish measuring num_in_channels = 800
+    Start measuring num_in_channels = 792
+Percent: [##########] 100.00% (1/1) energy: 0.09898285999999984 
+    Finish measuring num_in_channels = 792
+    Start measuring num_in_channels = 784
+Percent: [##########] 100.00% (1/1) energy: 0.09323969999999984 
+    Finish measuring num_in_channels = 784
+    Start measuring num_in_channels = 776
+Percent: [##########] 100.00% (1/1) energy: 0.09578835999999986 
+    Finish measuring num_in_channels = 776
+    Start measuring num_in_channels = 768
+Percent: [##########] 100.00% (1/1) energy: 0.09883054000000005 
+    Finish measuring num_in_channels = 768
+    Start measuring num_in_channels = 760
+Percent: [##########] 100.00% (1/1) energy: 0.07643322000000027 
+    Finish measuring num_in_channels = 760
+    Start measuring num_in_channels = 752
+Percent: [##########] 100.00% (1/1) energy: 0.08007835999999983 
+    Finish measuring num_in_channels = 752
+    Start measuring num_in_channels = 744
+Percent: [##########] 100.00% (1/1) energy: 0.07680377999999993 
+    Finish measuring num_in_channels = 744
+    Start measuring num_in_channels = 736
+Percent: [##########] 100.00% (1/1) energy: 0.07652503999999992 
+    Finish measuring num_in_channels = 736
+    Start measuring num_in_channels = 728
+Percent: [##########] 100.00% (1/1) energy: 0.06775735999999997 
+    Finish measuring num_in_channels = 728
+    Start measuring num_in_channels = 720
+Percent: [##########] 100.00% (1/1) energy: 0.0809215 
+    Finish measuring num_in_channels = 720
+    Start measuring num_in_channels = 712
+Percent: [##########] 100.00% (1/1) energy: 0.07947101999999998 
+    Finish measuring num_in_channels = 712
+    Start measuring num_in_channels = 704
+Percent: [##########] 100.00% (1/1) energy: 0.08082629999999999 
+    Finish measuring num_in_channels = 704
+    Start measuring num_in_channels = 696
+Percent: [##########] 100.00% (1/1) energy: 0.1042966200000002 
+    Finish measuring num_in_channels = 696
+    Start measuring num_in_channels = 688
+Percent: [##########] 100.00% (1/1) energy: 0.07495363999999999 
+    Finish measuring num_in_channels = 688
+    Start measuring num_in_channels = 680
+Percent: [##########] 100.00% (1/1) energy: 0.07445224 
+    Finish measuring num_in_channels = 680
+    Start measuring num_in_channels = 672
+Percent: [##########] 100.00% (1/1) energy: 0.07381064000000004 
+    Finish measuring num_in_channels = 672
+    Start measuring num_in_channels = 664
+Percent: [##########] 100.00% (1/1) energy: 0.07971151999999998 
+    Finish measuring num_in_channels = 664
+    Start measuring num_in_channels = 656
+Percent: [##########] 100.00% (1/1) energy: 0.10097478000000011 
+    Finish measuring num_in_channels = 656
+    Start measuring num_in_channels = 648
+Percent: [##########] 100.00% (1/1) energy: 0.07981702000000003 
+    Finish measuring num_in_channels = 648
+    Start measuring num_in_channels = 640
+Percent: [##########] 100.00% (1/1) energy: 0.07726291999999996 
+    Finish measuring num_in_channels = 640
+    Start measuring num_in_channels = 632
+Percent: [##########] 100.00% (1/1) energy: 0.07824471999999992 
+    Finish measuring num_in_channels = 632
+    Start measuring num_in_channels = 624
+Percent: [##########] 100.00% (1/1) energy: 0.07866475999999999 
+    Finish measuring num_in_channels = 624
+    Start measuring num_in_channels = 616
+Percent: [##########] 100.00% (1/1) energy: 0.07708965999999992 
+    Finish measuring num_in_channels = 616
+    Start measuring num_in_channels = 608
+Percent: [##########] 100.00% (1/1) energy: 0.09085266000000018 
+    Finish measuring num_in_channels = 608
+    Start measuring num_in_channels = 600
+Percent: [##########] 100.00% (1/1) energy: 0.09198650000000026 
+    Finish measuring num_in_channels = 600
+    Start measuring num_in_channels = 592
+Percent: [##########] 100.00% (1/1) energy: 0.08259692000000005 
+    Finish measuring num_in_channels = 592
+    Start measuring num_in_channels = 584
+Percent: [##########] 100.00% (1/1) energy: 0.07978876000000003 
+    Finish measuring num_in_channels = 584
+    Start measuring num_in_channels = 576
+Percent: [##########] 100.00% (1/1) energy: 0.07967288000000004 
+    Finish measuring num_in_channels = 576
+    Start measuring num_in_channels = 568
+Percent: [##########] 100.00% (1/1) energy: 0.07958622000000005 
+    Finish measuring num_in_channels = 568
+    Start measuring num_in_channels = 560
+Percent: [##########] 100.00% (1/1) energy: 0.07599501999999991 
+    Finish measuring num_in_channels = 560
+    Start measuring num_in_channels = 552
+Percent: [##########] 100.00% (1/1) energy: 0.06502289999999988 
+    Finish measuring num_in_channels = 552
+    Start measuring num_in_channels = 544
+Percent: [##########] 100.00% (1/1) energy: 0.07619131999999999 
+    Finish measuring num_in_channels = 544
+    Start measuring num_in_channels = 536
+Percent: [##########] 100.00% (1/1) energy: 0.07470827999999997 
+    Finish measuring num_in_channels = 536
+    Start measuring num_in_channels = 528
+Percent: [##########] 100.00% (1/1) energy: 0.07418187999999999 
+    Finish measuring num_in_channels = 528
+    Start measuring num_in_channels = 520
+Percent: [##########] 100.00% (1/1) energy: 0.07508931999999992 
+    Finish measuring num_in_channels = 520
+    Start measuring num_in_channels = 512
+Percent: [##########] 100.00% (1/1) energy: 0.06044539999999993 
+    Finish measuring num_in_channels = 512
+    Start measuring num_in_channels = 504
+Percent: [##########] 100.00% (1/1) energy: 0.07799472 
+    Finish measuring num_in_channels = 504
+    Start measuring num_in_channels = 496
+Percent: [##########] 100.00% (1/1) energy: 0.06944821999999994 
+    Finish measuring num_in_channels = 496
+    Start measuring num_in_channels = 488
+Percent: [##########] 100.00% (1/1) energy: 0.07556975999999989 
+    Finish measuring num_in_channels = 488
+    Start measuring num_in_channels = 480
+Percent: [##########] 100.00% (1/1) energy: 0.07472249999999983 
+    Finish measuring num_in_channels = 480
+    Start measuring num_in_channels = 472
+Percent: [##########] 100.00% (1/1) energy: 0.07131545999999982 
+    Finish measuring num_in_channels = 472
+    Start measuring num_in_channels = 464
+Percent: [##########] 100.00% (1/1) energy: 0.07594883999999992 
+    Finish measuring num_in_channels = 464
+    Start measuring num_in_channels = 456
+Percent: [##########] 100.00% (1/1) energy: 0.07576745999999994 
+    Finish measuring num_in_channels = 456
+    Start measuring num_in_channels = 448
+Percent: [##########] 100.00% (1/1) energy: 0.07530447999999998 
+    Finish measuring num_in_channels = 448
+    Start measuring num_in_channels = 440
+Percent: [##########] 100.00% (1/1) energy: 0.07515399999999998 
+    Finish measuring num_in_channels = 440
+    Start measuring num_in_channels = 432
+Percent: [##########] 100.00% (1/1) energy: 0.06985043999999985 
+    Finish measuring num_in_channels = 432
+    Start measuring num_in_channels = 424
+Percent: [##########] 100.00% (1/1) energy: 0.07123407999999994 
+    Finish measuring num_in_channels = 424
+    Start measuring num_in_channels = 416
+Percent: [##########] 100.00% (1/1) energy: 0.06785206 
+    Finish measuring num_in_channels = 416
+    Start measuring num_in_channels = 408
+Percent: [##########] 100.00% (1/1) energy: 0.0756903599999998 
+    Finish measuring num_in_channels = 408
+    Start measuring num_in_channels = 400
+Percent: [##########] 100.00% (1/1) energy: 0.07228054000000002 
+    Finish measuring num_in_channels = 400
+    Start measuring num_in_channels = 392
+Percent: [##########] 100.00% (1/1) energy: 0.07627303999999983 
+    Finish measuring num_in_channels = 392
+    Start measuring num_in_channels = 384
+Percent: [##########] 100.00% (1/1) energy: 0.06363119999999998 
+    Finish measuring num_in_channels = 384
+    Start measuring num_in_channels = 376
+Percent: [##########] 100.00% (1/1) energy: 0.07443749999999981 
+    Finish measuring num_in_channels = 376
+    Start measuring num_in_channels = 368
+Percent: [##########] 100.00% (1/1) energy: 0.07521175999999999 
+    Finish measuring num_in_channels = 368
+    Start measuring num_in_channels = 360
+Percent: [##########] 100.00% (1/1) energy: 0.07301349999999983 
+    Finish measuring num_in_channels = 360
+    Start measuring num_in_channels = 352
+Percent: [##########] 100.00% (1/1) energy: 0.07347323999999995 
+    Finish measuring num_in_channels = 352
+    Start measuring num_in_channels = 344
+Percent: [##########] 100.00% (1/1) energy: 0.07443046000000007 
+    Finish measuring num_in_channels = 344
+    Start measuring num_in_channels = 336
+Percent: [##########] 100.00% (1/1) energy: 0.07396657999999996 
+    Finish measuring num_in_channels = 336
+    Start measuring num_in_channels = 328
+Percent: [##########] 100.00% (1/1) energy: 0.07754227999999998 
+    Finish measuring num_in_channels = 328
+    Start measuring num_in_channels = 320
+Percent: [##########] 100.00% (1/1) energy: 0.07732215999999997 
+    Finish measuring num_in_channels = 320
+    Start measuring num_in_channels = 312
+Percent: [##########] 100.00% (1/1) energy: 0.06937243999999983 
+    Finish measuring num_in_channels = 312
+    Start measuring num_in_channels = 304
+Percent: [##########] 100.00% (1/1) energy: 0.07908529999999984 
+    Finish measuring num_in_channels = 304
+    Start measuring num_in_channels = 296
+Percent: [##########] 100.00% (1/1) energy: 0.07774411999999994 
+    Finish measuring num_in_channels = 296
+    Start measuring num_in_channels = 288
+Percent: [##########] 100.00% (1/1) energy: 0.09494175999999989 
+    Finish measuring num_in_channels = 288
+    Start measuring num_in_channels = 280
+Percent: [##########] 100.00% (1/1) energy: 0.06653008000000009 
+    Finish measuring num_in_channels = 280
+    Start measuring num_in_channels = 272
+Percent: [##########] 100.00% (1/1) energy: 0.07249145999999995 
+    Finish measuring num_in_channels = 272
+    Start measuring num_in_channels = 264
+Percent: [##########] 100.00% (1/1) energy: 0.07019888000000002 
+    Finish measuring num_in_channels = 264
+    Start measuring num_in_channels = 256
+Percent: [##########] 100.00% (1/1) energy: 0.07463061999999981 
+    Finish measuring num_in_channels = 256
+    Start measuring num_in_channels = 248
+Percent: [##########] 100.00% (1/1) energy: 0.0679558600000001 
+    Finish measuring num_in_channels = 248
+    Start measuring num_in_channels = 240
+Percent: [##########] 100.00% (1/1) energy: 0.07429073999999992 
+    Finish measuring num_in_channels = 240
+    Start measuring num_in_channels = 232
+Percent: [##########] 100.00% (1/1) energy: 0.07413202 
+    Finish measuring num_in_channels = 232
+    Start measuring num_in_channels = 224
+Percent: [##########] 100.00% (1/1) energy: 0.07314865999999995 
+    Finish measuring num_in_channels = 224
+    Start measuring num_in_channels = 216
+Percent: [##########] 100.00% (1/1) energy: 0.07254311999999988 
+    Finish measuring num_in_channels = 216
+    Start measuring num_in_channels = 208
+Percent: [##########] 100.00% (1/1) energy: 0.07321808000000012 
+    Finish measuring num_in_channels = 208
+    Start measuring num_in_channels = 200
+Percent: [##########] 100.00% (1/1) energy: 0.06829328000000004 
+    Finish measuring num_in_channels = 200
+    Start measuring num_in_channels = 192
+Percent: [##########] 100.00% (1/1) energy: 0.09368467999999987 
+    Finish measuring num_in_channels = 192
+    Start measuring num_in_channels = 184
+Percent: [##########] 100.00% (1/1) energy: 0.06602021999999999 
+    Finish measuring num_in_channels = 184
+    Start measuring num_in_channels = 176
+Percent: [##########] 100.00% (1/1) energy: 0.06741074 
+    Finish measuring num_in_channels = 176
+    Start measuring num_in_channels = 168
+Percent: [##########] 100.00% (1/1) energy: 0.09408481999999985 
+    Finish measuring num_in_channels = 168
+    Start measuring num_in_channels = 160
+Percent: [##########] 100.00% (1/1) energy: 0.09263209999999988 
+    Finish measuring num_in_channels = 160
+    Start measuring num_in_channels = 152
+Percent: [##########] 100.00% (1/1) energy: 0.06856413999999993 
+    Finish measuring num_in_channels = 152
+    Start measuring num_in_channels = 144
+Percent: [##########] 100.00% (1/1) energy: 0.0713614999999999 
+    Finish measuring num_in_channels = 144
+    Start measuring num_in_channels = 136
+Percent: [##########] 100.00% (1/1) energy: 0.07110158000000003 
+    Finish measuring num_in_channels = 136
+    Start measuring num_in_channels = 128
+Percent: [##########] 100.00% (1/1) energy: 0.06913722000000003 
+    Finish measuring num_in_channels = 128
+    Start measuring num_in_channels = 120
+Percent: [##########] 100.00% (1/1) energy: 0.054030659999999994 
+    Finish measuring num_in_channels = 120
+    Start measuring num_in_channels = 112
+Percent: [##########] 100.00% (1/1) energy: 0.06922915999999993 
+    Finish measuring num_in_channels = 112
+    Start measuring num_in_channels = 104
+Percent: [##########] 100.00% (1/1) energy: 0.06915445999999992 
+    Finish measuring num_in_channels = 104
+    Start measuring num_in_channels = 96
+Percent: [##########] 100.00% (1/1) energy: 0.07044301999999998 
+    Finish measuring num_in_channels = 96
+    Start measuring num_in_channels = 88
+Percent: [##########] 100.00% (1/1) energy: 0.06492859999999993 
+    Finish measuring num_in_channels = 88
+    Start measuring num_in_channels = 80
+Percent: [##########] 100.00% (1/1) energy: 0.0650715999999999 
+    Finish measuring num_in_channels = 80
+    Start measuring num_in_channels = 72
+Percent: [##########] 100.00% (1/1) energy: 0.06439453999999992 
+    Finish measuring num_in_channels = 72
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (1/1) energy: 0.07117098 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (1/1) energy: 0.06980755999999998 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (1/1) energy: 0.07167109999999989 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (1/1) energy: 0.07081283999999995 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (1/1) energy: 0.06687644000000002 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (1/1) energy: 0.07156043999999995 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (1/1) energy: 0.0754948399999999 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (1/1) energy: 0.06807880000000005 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer model.13.3 :
+Is depthwise: False
+Num in channels: 1024
+Num out channels: 1024
+Kernel size: (1, 1)
+Stride: (1, 1)
+Padding: (0, 0)
+Groups: 1
+Input feature map size: [1, 1024, 7, 7]
+Layer type: Conv2d
+    Start measuring num_in_channels = 1024
+Percent: [##########] 100.00% (128/128) energy: 0.09272049999999969 
+    Finish measuring num_in_channels = 1024
+    Start measuring num_in_channels = 1016
+Percent: [##########] 100.00% (128/128) energy: 0.0884345600000002 
+    Finish measuring num_in_channels = 1016
+    Start measuring num_in_channels = 1008
+Percent: [##########] 100.00% (128/128) energy: 0.09529310000000017 
+    Finish measuring num_in_channels = 1008
+    Start measuring num_in_channels = 1000
+Percent: [##########] 100.00% (128/128) energy: 0.09379624000000028 
+    Finish measuring num_in_channels = 1000
+    Start measuring num_in_channels = 992
+Percent: [##########] 100.00% (128/128) energy: 0.09460239999999993 
+    Finish measuring num_in_channels = 992
+    Start measuring num_in_channels = 984
+Percent: [##########] 100.00% (128/128) energy: 0.0782674799999999 
+    Finish measuring num_in_channels = 984
+    Start measuring num_in_channels = 976
+Percent: [##########] 100.00% (128/128) energy: 0.09143379999999998 
+    Finish measuring num_in_channels = 976
+    Start measuring num_in_channels = 968
+Percent: [##########] 100.00% (128/128) energy: 0.09710682 0000004
+    Finish measuring num_in_channels = 968
+    Start measuring num_in_channels = 960
+Percent: [##########] 100.00% (128/128) energy: 0.09667732000000033 
+    Finish measuring num_in_channels = 960
+    Start measuring num_in_channels = 952
+Percent: [##########] 100.00% (128/128) energy: 0.09795340000000001 
+    Finish measuring num_in_channels = 952
+    Start measuring num_in_channels = 944
+Percent: [##########] 100.00% (128/128) energy: 0.08895832000000008 
+    Finish measuring num_in_channels = 944
+    Start measuring num_in_channels = 936
+Percent: [##########] 100.00% (128/128) energy: 0.10070295999999991 
+    Finish measuring num_in_channels = 936
+    Start measuring num_in_channels = 928
+Percent: [##########] 100.00% (128/128) energy: 0.09776118000000035 
+    Finish measuring num_in_channels = 928
+    Start measuring num_in_channels = 920
+Percent: [##########] 100.00% (128/128) energy: 0.08195769999999994 
+    Finish measuring num_in_channels = 920
+    Start measuring num_in_channels = 912
+Percent: [##########] 100.00% (128/128) energy: 0.08596382000000022 
+    Finish measuring num_in_channels = 912
+    Start measuring num_in_channels = 904
+Percent: [##########] 100.00% (128/128) energy: 0.09185931999999992 
+    Finish measuring num_in_channels = 904
+    Start measuring num_in_channels = 896
+Percent: [##########] 100.00% (128/128) energy: 0.08893259999999972 
+    Finish measuring num_in_channels = 896
+    Start measuring num_in_channels = 888
+Percent: [##########] 100.00% (128/128) energy: 0.09411369999999991 
+    Finish measuring num_in_channels = 888
+    Start measuring num_in_channels = 880
+Percent: [##########] 100.00% (128/128) energy: 0.09090570000000044 
+    Finish measuring num_in_channels = 880
+    Start measuring num_in_channels = 872
+Percent: [##########] 100.00% (128/128) energy: 0.09604799999999994 
+    Finish measuring num_in_channels = 872
+    Start measuring num_in_channels = 864
+Percent: [##########] 100.00% (128/128) energy: 0.09335676000000032 
+    Finish measuring num_in_channels = 864
+    Start measuring num_in_channels = 856
+Percent: [##########] 100.00% (128/128) energy: 0.09179247999999991 
+    Finish measuring num_in_channels = 856
+    Start measuring num_in_channels = 848
+Percent: [##########] 100.00% (128/128) energy: 0.09980426000000049 
+    Finish measuring num_in_channels = 848
+    Start measuring num_in_channels = 840
+Percent: [##########] 100.00% (128/128) energy: 0.0970045799999996 
+    Finish measuring num_in_channels = 840
+    Start measuring num_in_channels = 832
+Percent: [##########] 100.00% (128/128) energy: 0.0924053600000004 
+    Finish measuring num_in_channels = 832
+    Start measuring num_in_channels = 824
+Percent: [##########] 100.00% (128/128) energy: 0.09187579999999976 
+    Finish measuring num_in_channels = 824
+    Start measuring num_in_channels = 816
+Percent: [##########] 100.00% (128/128) energy: 0.09074101999999996 
+    Finish measuring num_in_channels = 816
+    Start measuring num_in_channels = 808
+Percent: [##########] 100.00% (128/128) energy: 0.09063380000000008 
+    Finish measuring num_in_channels = 808
+    Start measuring num_in_channels = 800
+Percent: [##########] 100.00% (128/128) energy: 0.09012237999999996 
+    Finish measuring num_in_channels = 800
+    Start measuring num_in_channels = 792
+Percent: [##########] 100.00% (128/128) energy: 0.0923661199999997 
+    Finish measuring num_in_channels = 792
+    Start measuring num_in_channels = 784
+Percent: [##########] 100.00% (128/128) energy: 0.07545242 9999999
+    Finish measuring num_in_channels = 784
+    Start measuring num_in_channels = 776
+Percent: [##########] 100.00% (128/128) energy: 0.09514222000000024 
+    Finish measuring num_in_channels = 776
+    Start measuring num_in_channels = 768
+Percent: [##########] 100.00% (128/128) energy: 0.09404885999999989 
+    Finish measuring num_in_channels = 768
+    Start measuring num_in_channels = 760
+Percent: [##########] 100.00% (128/128) energy: 0.0926121600000005 
+    Finish measuring num_in_channels = 760
+    Start measuring num_in_channels = 752
+Percent: [##########] 100.00% (128/128) energy: 0.09461455999999999 
+    Finish measuring num_in_channels = 752
+    Start measuring num_in_channels = 744
+Percent: [##########] 100.00% (128/128) energy: 0.09238151999999993 
+    Finish measuring num_in_channels = 744
+    Start measuring num_in_channels = 736
+Percent: [##########] 100.00% (128/128) energy: 0.11964809999999977 
+    Finish measuring num_in_channels = 736
+    Start measuring num_in_channels = 728
+Percent: [##########] 100.00% (128/128) energy: 0.08484458000000007 
+    Finish measuring num_in_channels = 728
+    Start measuring num_in_channels = 720
+Percent: [##########] 100.00% (128/128) energy: 0.0972666400000002 
+    Finish measuring num_in_channels = 720
+    Start measuring num_in_channels = 712
+Percent: [##########] 100.00% (128/128) energy: 0.09076350000000011 
+    Finish measuring num_in_channels = 712
+    Start measuring num_in_channels = 704
+Percent: [##########] 100.00% (128/128) energy: 0.09309638000000019 
+    Finish measuring num_in_channels = 704
+    Start measuring num_in_channels = 696
+Percent: [##########] 100.00% (128/128) energy: 0.09138104000000016 
+    Finish measuring num_in_channels = 696
+    Start measuring num_in_channels = 688
+Percent: [##########] 100.00% (128/128) energy: 0.07691054000000001 
+    Finish measuring num_in_channels = 688
+    Start measuring num_in_channels = 680
+Percent: [##########] 100.00% (128/128) energy: 0.09419152000000024 
+    Finish measuring num_in_channels = 680
+    Start measuring num_in_channels = 672
+Percent: [##########] 100.00% (128/128) energy: 0.08779858000000042 
+    Finish measuring num_in_channels = 672
+    Start measuring num_in_channels = 664
+Percent: [##########] 100.00% (128/128) energy: 0.09027692000000018 
+    Finish measuring num_in_channels = 664
+    Start measuring num_in_channels = 656
+Percent: [##########] 100.00% (128/128) energy: 0.08810830000000017 
+    Finish measuring num_in_channels = 656
+    Start measuring num_in_channels = 648
+Percent: [##########] 100.00% (128/128) energy: 0.08517902000000009 
+    Finish measuring num_in_channels = 648
+    Start measuring num_in_channels = 640
+Percent: [##########] 100.00% (128/128) energy: 0.07557201999999998 
+    Finish measuring num_in_channels = 640
+    Start measuring num_in_channels = 632
+Percent: [##########] 100.00% (128/128) energy: 0.08453920000000013 
+    Finish measuring num_in_channels = 632
+    Start measuring num_in_channels = 624
+Percent: [##########] 100.00% (128/128) energy: 0.08518816000000015 
+    Finish measuring num_in_channels = 624
+    Start measuring num_in_channels = 616
+Percent: [##########] 100.00% (128/128) energy: 0.07404899999999992 
+    Finish measuring num_in_channels = 616
+    Start measuring num_in_channels = 608
+Percent: [##########] 100.00% (128/128) energy: 0.07356335999999997 
+    Finish measuring num_in_channels = 608
+    Start measuring num_in_channels = 600
+Percent: [##########] 100.00% (128/128) energy: 0.07679304000000005 
+    Finish measuring num_in_channels = 600
+    Start measuring num_in_channels = 592
+Percent: [##########] 100.00% (128/128) energy: 0.07212499999999991 
+    Finish measuring num_in_channels = 592
+    Start measuring num_in_channels = 584
+Percent: [##########] 100.00% (128/128) energy: 0.07615929999999999 
+    Finish measuring num_in_channels = 584
+    Start measuring num_in_channels = 576
+Percent: [##########] 100.00% (128/128) energy: 0.08846012000000011 
+    Finish measuring num_in_channels = 576
+    Start measuring num_in_channels = 568
+Percent: [##########] 100.00% (128/128) energy: 0.07396826000000005 
+    Finish measuring num_in_channels = 568
+    Start measuring num_in_channels = 560
+Percent: [##########] 100.00% (128/128) energy: 0.11419551999999986 
+    Finish measuring num_in_channels = 560
+    Start measuring num_in_channels = 552
+Percent: [##########] 100.00% (128/128) energy: 0.08986752000000015 
+    Finish measuring num_in_channels = 552
+    Start measuring num_in_channels = 544
+Percent: [##########] 100.00% (128/128) energy: 0.08843106000000026 
+    Finish measuring num_in_channels = 544
+    Start measuring num_in_channels = 536
+Percent: [##########] 100.00% (128/128) energy: 0.06844699999999984 
+    Finish measuring num_in_channels = 536
+    Start measuring num_in_channels = 528
+Percent: [##########] 100.00% (128/128) energy: 0.07185469999999985 
+    Finish measuring num_in_channels = 528
+    Start measuring num_in_channels = 520
+Percent: [##########] 100.00% (128/128) energy: 0.07772059999999979 
+    Finish measuring num_in_channels = 520
+    Start measuring num_in_channels = 512
+Percent: [##########] 100.00% (128/128) energy: 0.0775297999999999 
+    Finish measuring num_in_channels = 512
+    Start measuring num_in_channels = 504
+Percent: [##########] 100.00% (128/128) energy: 0.07574866000000025 
+    Finish measuring num_in_channels = 504
+    Start measuring num_in_channels = 496
+Percent: [##########] 100.00% (128/128) energy: 0.0718265799999999 
+    Finish measuring num_in_channels = 496
+    Start measuring num_in_channels = 488
+Percent: [##########] 100.00% (128/128) energy: 0.08043077999999997 
+    Finish measuring num_in_channels = 488
+    Start measuring num_in_channels = 480
+Percent: [##########] 100.00% (128/128) energy: 0.08903711999999976 
+    Finish measuring num_in_channels = 480
+    Start measuring num_in_channels = 472
+Percent: [##########] 100.00% (128/128) energy: 0.07358701999999985 
+    Finish measuring num_in_channels = 472
+    Start measuring num_in_channels = 464
+Percent: [##########] 100.00% (128/128) energy: 0.07285225999999975 
+    Finish measuring num_in_channels = 464
+    Start measuring num_in_channels = 456
+Percent: [##########] 100.00% (128/128) energy: 0.07705103999999992 
+    Finish measuring num_in_channels = 456
+    Start measuring num_in_channels = 448
+Percent: [##########] 100.00% (128/128) energy: 0.06763553999999997 
+    Finish measuring num_in_channels = 448
+    Start measuring num_in_channels = 440
+Percent: [##########] 100.00% (128/128) energy: 0.09586317999999996 
+    Finish measuring num_in_channels = 440
+    Start measuring num_in_channels = 432
+Percent: [##########] 100.00% (128/128) energy: 0.06806331999999994 
+    Finish measuring num_in_channels = 432
+    Start measuring num_in_channels = 424
+Percent: [##########] 100.00% (128/128) energy: 0.07534614000000021 
+    Finish measuring num_in_channels = 424
+    Start measuring num_in_channels = 416
+Percent: [##########] 100.00% (128/128) energy: 0.07559224000000009 
+    Finish measuring num_in_channels = 416
+    Start measuring num_in_channels = 408
+Percent: [##########] 100.00% (128/128) energy: 0.07125516000000016 
+    Finish measuring num_in_channels = 408
+    Start measuring num_in_channels = 400
+Percent: [##########] 100.00% (128/128) energy: 0.07665765999999993 
+    Finish measuring num_in_channels = 400
+    Start measuring num_in_channels = 392
+Percent: [##########] 100.00% (128/128) energy: 0.06828894000000016 
+    Finish measuring num_in_channels = 392
+    Start measuring num_in_channels = 384
+Percent: [##########] 100.00% (128/128) energy: 0.07483132000000021 
+    Finish measuring num_in_channels = 384
+    Start measuring num_in_channels = 376
+Percent: [##########] 100.00% (128/128) energy: 0.06618903999999985 
+    Finish measuring num_in_channels = 376
+    Start measuring num_in_channels = 368
+Percent: [##########] 100.00% (128/128) energy: 0.07342764000000018 
+    Finish measuring num_in_channels = 368
+    Start measuring num_in_channels = 360
+Percent: [##########] 100.00% (128/128) energy: 0.0550976800000001 
+    Finish measuring num_in_channels = 360
+    Start measuring num_in_channels = 352
+Percent: [##########] 100.00% (128/128) energy: 0.07298854000000017 
+    Finish measuring num_in_channels = 352
+    Start measuring num_in_channels = 344
+Percent: [##########] 100.00% (128/128) energy: 0.07276290000000012 
+    Finish measuring num_in_channels = 344
+    Start measuring num_in_channels = 336
+Percent: [##########] 100.00% (128/128) energy: 0.07073959999999992 
+    Finish measuring num_in_channels = 336
+    Start measuring num_in_channels = 328
+Percent: [##########] 100.00% (128/128) energy: 0.07319137999999989 
+    Finish measuring num_in_channels = 328
+    Start measuring num_in_channels = 320
+Percent: [##########] 100.00% (128/128) energy: 0.07240498000000019 
+    Finish measuring num_in_channels = 320
+    Start measuring num_in_channels = 312
+Percent: [##########] 100.00% (128/128) energy: 0.07112510000000002 
+    Finish measuring num_in_channels = 312
+    Start measuring num_in_channels = 304
+Percent: [##########] 100.00% (128/128) energy: 0.07043159999999993 
+    Finish measuring num_in_channels = 304
+    Start measuring num_in_channels = 296
+Percent: [##########] 100.00% (128/128) energy: 0.06476789999999992 
+    Finish measuring num_in_channels = 296
+    Start measuring num_in_channels = 288
+Percent: [##########] 100.00% (128/128) energy: 0.0674431 99999993
+    Finish measuring num_in_channels = 288
+    Start measuring num_in_channels = 280
+Percent: [##########] 100.00% (128/128) energy: 0.06982994000000003 
+    Finish measuring num_in_channels = 280
+    Start measuring num_in_channels = 272
+Percent: [##########] 100.00% (128/128) energy: 0.07367867999999997 
+    Finish measuring num_in_channels = 272
+    Start measuring num_in_channels = 264
+Percent: [##########] 100.00% (128/128) energy: 0.06969293999999988 
+    Finish measuring num_in_channels = 264
+    Start measuring num_in_channels = 256
+Percent: [##########] 100.00% (128/128) energy: 0.07272318000000011 
+    Finish measuring num_in_channels = 256
+    Start measuring num_in_channels = 248
+Percent: [##########] 100.00% (128/128) energy: 0.09357117999999985 
+    Finish measuring num_in_channels = 248
+    Start measuring num_in_channels = 240
+Percent: [##########] 100.00% (128/128) energy: 0.06951996000000012 
+    Finish measuring num_in_channels = 240
+    Start measuring num_in_channels = 232
+Percent: [##########] 100.00% (128/128) energy: 0.07256374000000004 
+    Finish measuring num_in_channels = 232
+    Start measuring num_in_channels = 224
+Percent: [##########] 100.00% (128/128) energy: 0.07381543999999983 
+    Finish measuring num_in_channels = 224
+    Start measuring num_in_channels = 216
+Percent: [##########] 100.00% (128/128) energy: 0.06975123999999994 
+    Finish measuring num_in_channels = 216
+    Start measuring num_in_channels = 208
+Percent: [##########] 100.00% (128/128) energy: 0.07060576000000003 
+    Finish measuring num_in_channels = 208
+    Start measuring num_in_channels = 200
+Percent: [##########] 100.00% (128/128) energy: 0.07137536000000014 
+    Finish measuring num_in_channels = 200
+    Start measuring num_in_channels = 192
+Percent: [##########] 100.00% (128/128) energy: 0.06191630000000001 
+    Finish measuring num_in_channels = 192
+    Start measuring num_in_channels = 184
+Percent: [##########] 100.00% (128/128) energy: 0.06653721999999991 
+    Finish measuring num_in_channels = 184
+    Start measuring num_in_channels = 176
+Percent: [##########] 100.00% (128/128) energy: 0.06315027999999996 
+    Finish measuring num_in_channels = 176
+    Start measuring num_in_channels = 168
+Percent: [##########] 100.00% (128/128) energy: 0.06948967999999986 
+    Finish measuring num_in_channels = 168
+    Start measuring num_in_channels = 160
+Percent: [##########] 100.00% (128/128) energy: 0.07464221999999987 
+    Finish measuring num_in_channels = 160
+    Start measuring num_in_channels = 152
+Percent: [##########] 100.00% (128/128) energy: 0.07046633999999988 
+    Finish measuring num_in_channels = 152
+    Start measuring num_in_channels = 144
+Percent: [##########] 100.00% (128/128) energy: 0.06945667999999991 
+    Finish measuring num_in_channels = 144
+    Start measuring num_in_channels = 136
+Percent: [##########] 100.00% (128/128) energy: 0.07066823999999992 
+    Finish measuring num_in_channels = 136
+    Start measuring num_in_channels = 128
+Percent: [##########] 100.00% (128/128) energy: 0.07630429999999991 
+    Finish measuring num_in_channels = 128
+    Start measuring num_in_channels = 120
+Percent: [##########] 100.00% (128/128) energy: 0.0760666799999999 
+    Finish measuring num_in_channels = 120
+    Start measuring num_in_channels = 112
+Percent: [##########] 100.00% (128/128) energy: 0.09146473999999977 
+    Finish measuring num_in_channels = 112
+    Start measuring num_in_channels = 104
+Percent: [##########] 100.00% (128/128) energy: 0.07104159999999995 
+    Finish measuring num_in_channels = 104
+    Start measuring num_in_channels = 96
+Percent: [##########] 100.00% (128/128) energy: 0.07057673999999994 
+    Finish measuring num_in_channels = 96
+    Start measuring num_in_channels = 88
+Percent: [##########] 100.00% (128/128) energy: 0.07085625999999988 
+    Finish measuring num_in_channels = 88
+    Start measuring num_in_channels = 80
+Percent: [##########] 100.00% (128/128) energy: 0.06921781999999987 
+    Finish measuring num_in_channels = 80
+    Start measuring num_in_channels = 72
+Percent: [##########] 100.00% (128/128) energy: 0.0681235199999999 
+    Finish measuring num_in_channels = 72
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (128/128) energy: 0.05284401999999994 
+    Finish measuring num_in_channels = 64
+    Start measuring num_in_channels = 56
+Percent: [##########] 100.00% (128/128) energy: 0.05922143999999994 
+    Finish measuring num_in_channels = 56
+    Start measuring num_in_channels = 48
+Percent: [##########] 100.00% (128/128) energy: 0.07452072000000003 
+    Finish measuring num_in_channels = 48
+    Start measuring num_in_channels = 40
+Percent: [##########] 100.00% (128/128) energy: 0.06305859999999996 
+    Finish measuring num_in_channels = 40
+    Start measuring num_in_channels = 32
+Percent: [##########] 100.00% (128/128) energy: 0.07553097999999989 
+    Finish measuring num_in_channels = 32
+    Start measuring num_in_channels = 24
+Percent: [##########] 100.00% (128/128) energy: 0.07036017999999991 
+    Finish measuring num_in_channels = 24
+    Start measuring num_in_channels = 16
+Percent: [##########] 100.00% (128/128) energy: 0.06927359999999994 
+    Finish measuring num_in_channels = 16
+    Start measuring num_in_channels = 8
+Percent: [##########] 100.00% (128/128) energy: 0.06989846000000002 
+    Finish measuring num_in_channels = 8
+-------------------------------------------
+Measuring layer fc :
+Is depthwise: False
+Num in channels: 1024
+Num out channels: 10
+Kernel size: (1, 1)
+Stride: (1, 1)
+Padding: (0, 0)
+Groups: 1
+Input feature map size: [1, 1024, 1, 1]
+Layer type: Linear
+    Start measuring num_in_channels = 1024
+Percent: [##########] 100.00% (1/1) energy: 0.06817470000000006 
+    Finish measuring num_in_channels = 1024
+    Start measuring num_in_channels = 960
+Percent: [##########] 100.00% (1/1) energy: 0.0690914000000001 
+    Finish measuring num_in_channels = 960
+    Start measuring num_in_channels = 896
+Percent: [##########] 100.00% (1/1) energy: 0.06660014000000007 
+    Finish measuring num_in_channels = 896
+    Start measuring num_in_channels = 832
+Percent: [##########] 100.00% (1/1) energy: 0.07026591999999998 
+    Finish measuring num_in_channels = 832
+    Start measuring num_in_channels = 768
+Percent: [##########] 100.00% (1/1) energy: 0.06988233999999996 
+    Finish measuring num_in_channels = 768
+    Start measuring num_in_channels = 704
+Percent: [##########] 100.00% (1/1) energy: 0.06837069999999995 
+    Finish measuring num_in_channels = 704
+    Start measuring num_in_channels = 640
+Percent: [##########] 100.00% (1/1) energy: 0.06962050000000006 
+    Finish measuring num_in_channels = 640
+    Start measuring num_in_channels = 576
+Percent: [##########] 100.00% (1/1) energy: 0.06798769999999998 
+    Finish measuring num_in_channels = 576
+    Start measuring num_in_channels = 512
+Percent: [##########] 100.00% (1/1) energy: 0.06841530000000004 
+    Finish measuring num_in_channels = 512
+    Start measuring num_in_channels = 448
+Percent: [##########] 100.00% (1/1) energy: 0.0704716199999999 
+    Finish measuring num_in_channels = 448
+    Start measuring num_in_channels = 384
+Percent: [##########] 100.00% (1/1) energy: 0.06697465999999999 
+    Finish measuring num_in_channels = 384
+    Start measuring num_in_channels = 320
+Percent: [##########] 100.00% (1/1) energy: 0.06325998 
+    Finish measuring num_in_channels = 320
+    Start measuring num_in_channels = 256
+Percent: [##########] 100.00% (1/1) energy: 0.06810886 
+    Finish measuring num_in_channels = 256
+    Start measuring num_in_channels = 192
+Percent: [##########] 100.00% (1/1) energy: 0.06809900000000005 
+    Finish measuring num_in_channels = 192
+    Start measuring num_in_channels = 128
+Percent: [##########] 100.00% (1/1) energy: 0.07040709999999996 
+    Finish measuring num_in_channels = 128
+    Start measuring num_in_channels = 64
+Percent: [##########] 100.00% (1/1) energy: 0.06774662000000001 
+    Finish measuring num_in_channels = 64
+-------------------------------------------
+Finish building energy lookup table.
+    Device: Tesla V100-SXM3-32GB
+    Model:  mobilenet
+-------------------------------------------
+Computed energy:      6.020950300000003
+Exact energy:         7.897721120000001
+
