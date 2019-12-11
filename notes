@@ -13,14 +13,19 @@ So actually we look at build_latency_lookup_table(), which runs much earlier and
 
 So things you have to do:
 ## master.py
-1) Argument support to add resource_type ENERGY
+DONE = 1) Argument support to add resource_type ENERGY
 
 ## functions.py
-2) compute_resource() to select ENERGY type
-3) dup or modify compute_latency_from_lookup_table() to specify resource type and split on LATENCY and ENERGY
-  3a) You need a KEY_ENERGY at some point (in constants.py) to properly index in the same fashion as existing work
-4) dup or modify build_latency_lookup_table() to specify resource type and split on ENERGY (LATENCY split already exists for some reason)
-5) add measure_energy() function a la measure_latency() function to get the resource usage
+DONE = 2) compute_resource() to select ENERGY type
+DONE = 3) dup or modify compute_latency_from_lookup_table() to specify resource type and split on LATENCY and ENERGY
+DONE = 3a) You need a KEY_ENERGY at some point (in constants.py) to properly index in the same fashion as existing work
+DONE = 4) dup or modify build_latency_lookup_table() to specify resource type and split on ENERGY (LATENCY split already exists for some reason)
+DONE = 5) add measure_energy() function a la measure_latency() function to get the resource usage
 
 ## network_utils/network_utils_*.py
-6) Modify build_lookup_table() to distinguish between LATENCY and ENERGY builds in manner that matches functions.py changes
+DONE = 6) Modify build_lookup_table() to distinguish between LATENCY and ENERGY builds in manner that matches functions.py changes
+DONE = 7) Add _compute_energy_from_lookup_table() using functions.py
+
+
+## Additions
+you have to change build_latency_lookup_table() to build_lookup_table() with a resource_type argument as 3rd argument
