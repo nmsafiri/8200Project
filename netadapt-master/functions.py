@@ -321,7 +321,7 @@ def measure_energy(model, input_data_shape, runtimes=500):
       # Add 0.3 to the time for process writing to file because it's bad about that
     expected_latency = runtimes*measure_latency(model, input_data_shape, runtimes=10)+0.3
     if expected_latency < 1.0:
-        expected_latency = 1.3
+        expected_latency = 1.1
     #print("Expected_latency = {}".format(expected_latency))
     is_cuda = next(model.parameters()).is_cuda
     if is_cuda:
